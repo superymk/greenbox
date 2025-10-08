@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Article — GreenBox</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <!-- Marked.js for client-side Markdown rendering -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/utils.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="downloads.html">Download</a>
+      <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container narrow">
+      <article id="article">
+        <h1 id="article-title" class="article-title">Loading…</h1>
+        <p id="article-meta" class="muted"></p>
+        <div id="article-content" class="prose"></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">© <span id="year"></span> GreenBox.</div>
+</footer>
+
+<script>
+  (async function () {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug');
+    const titleEl = document.getElementById('article-title');
+    const metaEl  = document.getElementById('article-meta');
+    const content = document.getElementById('article-content');
+
+    try {
+      const posts = await (await fetch('data/posts.json', { cache: 'no-store' })).json();
+      const post = posts.find(p => p.slug === slug);
+      if (!post) throw new Error('Post not found');
+
+      titleEl.textContent = post.title;
+      metaEl.textContent = new Date(post.date).toLocaleDateString();
+
+      const md = await (await fetch(`articles/${encodeURIComponent(slug)}.md`, { cache: 'no-store' })).text();
+      content.innerHTML = marked.parse(md);
+    } catch (e) {
+      titleEl.textContent = 'Not found';
+      metaEl.textContent = '';
+      content.innerHTML = '<p>Sorry, we could not load this article.</p>';
+      console.error(e);
+    }
+  })();
+</script>
+</body>
+</html>

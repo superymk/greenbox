@@ -1,35 +1,98 @@
-<!DOCTYPE HTML>
-<!-- Website template by freewebsitetemplates.com -->
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>GreenBox Project</title>
-	<link rel="stylesheet" href="css/style.css" type="text/css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GreenBox — Secure Virtualization & Remote File Suite</title>
+  <meta name="description" content="GreenBox: a modern micro-virtualization & remote file ecosystem." />
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
-	<div id="header">
-		<div class="clearfix">
-			<div class="logo">
-				<a href="index.html"><p style="font-size:30px; color:white">GreenBox Project</p></a>
-			</div>
+  <!-- Top banner / navbar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="GreenBox logo" class="logo" />
+        <span>GreenBox</span>
+      </a>
 
-			<ul class="navigation">
-				<li class="active">
-					<a href="demos.html">Demos</a>
-				</li>
-				<li>
-					<a href="contact.html">Contact</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div id="contents">
-		<div class="highlight">
-			<div class="clearfix">
-				<img src="images/greenbox_about.jpg" width="100%" height="100%">
-			</div>
-		</div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
-	</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Download</a>
+        <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero (short paragraph + jigsaw image, like realai.eu vibe) -->
+    <section class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>GreenBox</h1>
+          <p>
+            GreenBox is a secure micro-virtualization and remote file platform. It blends a custom
+            hypervisor, lean OS components, and a refined UI to make isolation and file workflows
+            simple and fast—on desktop and embedded.
+          </p>
+          <div class="cta-row">
+            <a class="btn primary" href="downloads.html">Download</a>
+            <a class="btn" href="https://github.com/yourname/greenbox" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <img src="images/hero-jigsaw.svg" alt="Interlocking jigsaw visual for GreenBox components" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features (vertical scroll only) -->
+    <section class="section alt" id="features">
+      <div class="container narrow">
+        <h2>Why GreenBox?</h2>
+        <ul class="feature-list">
+          <li><strong>Micro-virtualization core:</strong> minimal attack surface, hardware isolation.</li>
+          <li><strong>Remote files made friendly:</strong> Google Drive integration, uploads/downloads, progress UI.</li>
+          <li><strong>Polished UI:</strong> clean design language, responsive layout, accessible controls.</li>
+          <li><strong>Portable architecture:</strong> Linux & Windows builds, drivers, and SDKs.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Blog preview (auto-fills from posts.json) -->
+    <section class="section" id="news">
+      <div class="container narrow">
+        <h2>Latest from the Blog</h2>
+        <div id="blog-preview" class="cards"></div>
+        <div class="cta-row">
+          <a class="btn" href="blog.html">Read all posts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section alt" id="contact">
+      <div class="container narrow">
+        <h2>Contact</h2>
+        <p>Questions, collaborations, or security reports? Reach out:</p>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:contact@greenbox.dev">contact@greenbox.dev</a></li>
+          <li>GitHub Issues: <a href="https://github.com/yourname/greenbox/issues" target="_blank" rel="noopener">Open an issue</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      © <span id="year"></span> GreenBox. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>

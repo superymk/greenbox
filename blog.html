@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Blog — GreenBox</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/utils.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="downloads.html">Download</a>
+      <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
+      <a class="active" href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container narrow">
+      <h1>Blog</h1>
+      <div id="blog-list" class="cards"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">© <span id="year"></span> GreenBox.</div>
+</footer>
+
+<script>
+  // Load posts.json and render list
+  fetch('data/posts.json', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(posts => {
+      const container = document.getElementById('blog-list');
+      posts
+        .sort((a,b) => new Date(b.date) - new Date(a.date))
+        .forEach(p => {
+          const el = document.createElement('article');
+          el.className = 'card';
+          el.innerHTML = `
+            <h3><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h3>
+            <p class="muted">${new Date(p.date).toLocaleDateString()} · ${p.readingTime || ''}</p>
+            <p>${p.summary || ''}</p>
+            <div><a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}">Read</a></div>
+          `;
+          container.appendChild(el);
+        });
+    })
+    .catch(err => {
+      document.getElementById('blog-list').innerHTML = '<p>Unable to load posts.</p>';
+      console.error(err);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "hello-greenbox",
+    "title": "Hello, GreenBox",
+    "date": "2025-10-01",
+    "summary": "A quick introduction to the GreenBox vision, components, and roadmap.",
+    "readingTime": "3 min"
+  },
+  {
+    "slug": "roadmap-2025q4",
+    "title": "Roadmap — Q4 2025",
+    "date": "2025-10-05",
+    "summary": "Kernel work, UI polish, packaging, and security hardening plans.",
+    "readingTime": "4 min"
+  }
+]

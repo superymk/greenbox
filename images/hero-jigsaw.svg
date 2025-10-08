@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-label="Interlocking jigsaw illustration">
+  <rect width="800" height="520" fill="#12161d"></rect>
+  <!-- Simple stylized puzzle pieces -->
+  <g transform="translate(120,100)">
+    <rect x="0" y="0" width="220" height="160" rx="20" fill="#4cc38a"></rect>
+    <circle cx="220" cy="80" r="24" fill="#12161d"></circle>
+  </g>
+  <g transform="translate(320,100)">
+    <rect x="0" y="0" width="220" height="160" rx="20" fill="#2f8f67"></rect>
+    <circle cx="0" cy="80" r="24" fill="#12161d"></circle>
+    <circle cx="220" cy="80" r="24" fill="#12161d"></circle>
+  </g>
+  <g transform="translate(520,100)">
+    <rect x="0" y="0" width="220" height="160" rx="20" fill="#4cc38a"></rect>
+    <circle cx="0" cy="80" r="24" fill="#12161d"></circle>
+  </g>
+  <g transform="translate(220,260)">
+    <rect x="0" y="0" width="220" height="160" rx="20" fill="#3dbb7c"></rect>
+    <circle cx="110" cy="0" r="24" fill="#12161d"></circle>
+    <circle cx="110" cy="160" r="24" fill="#12161d"></circle>
+  </g>
+  <g transform="translate(440,260)">
+    <rect x="0" y="0" width="220" height="160" rx="20" fill="#4cc38a"></rect>
+    <circle cx="110" cy="0" r="24" fill="#12161d"></circle>
+    <circle cx="110" cy="160" r="24" fill="#12161d"></circle>
+  </g>
+</svg>
