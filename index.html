@@ -47,43 +47,6 @@
         <div class="hero-two">
           <!-- LEFT: comparison table -->
           <div class="hero-left">
-            <h3 class="hero-lead">GreenBox is the only endpoint solution to offer sufficient protection to
-              Security-Sensitive Applications (SecApps).</h3>
-
-            <div class="table-wrap">
-              <!-- Table generated from Book1.xlsx -->
-              <table class="dataframe hero-table">
-                <thead>
-                  <tr>
-                    <th>Approaches</th>
-                    <th>Assumptions</th>
-                    <th>SecApps Protection</th>
-                    <th>Issues</th>
-                    <th>Assurance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Antivirus, Firewall</td>
-                    <td>(Host) OSes are malware-free</td>
-                    <td>Run SecApps on (host) OSes</td>
-                    <td>No 100% prevention of unknown threats</td>
-                    <td>Low (Must trust billions lines <br/> of code in OSes)</td>
-                  </tr>
-                  <tr>
-                    <td>Virtualization, <br/>Containerization</td>
-                    <td>Same as above</td>
-                    <td>Same as above</td>
-                    <td>Incomplete threats prevention</td>
-                    <td>Same as above</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <!-- RIGHT: supporting text + buttons -->
-          <div class="hero-right">
             <p class="hero-note">
               Why do other solutions fail? Because SecApps inherit vulnerabilities from the host OSes and other apps
               that share the same attack surface. GreenBox isolates SecApps in hardware-backed micro-environments with
@@ -95,6 +58,16 @@
               <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on
                 GitHub</a>
             </div>
+
+          </div>
+
+          <!-- RIGHT: supporting text + buttons -->
+          <div class="hero-right">
+
+
+
+
+
           </div>
         </div>
       </div>
@@ -104,13 +77,46 @@
     <section class="section alt" id="features">
       <div class="container">
         <h2>Why GreenBox?</h2>
-        <ul class="feature-list">
-          <li><strong>Micro-virtualization core:</strong> minimal attack surface, hardware isolation.</li>
-          <li><strong>Remote files made friendly:</strong> Google Drive integration, uploads/downloads, progress UI.
-          </li>
-          <li><strong>Polished UI:</strong> clean design language, responsive layout, accessible controls.</li>
-          <li><strong>Portable architecture:</strong> Linux & Windows builds, drivers, and SDKs.</li>
-        </ul>
+        <h3 class="hero-lead">GreenBox is the only endpoint solution to offer <span class="text-green-bold">sufficient protection</span> to
+          Security-Sensitive Applications (SecApps).</h3>
+
+        <div class="table-wrap">
+          <!-- Table generated from Book1.xlsx -->
+          <table class="dataframe hero-table">
+            <thead>
+              <tr>
+                <th>Approaches</th>
+                <th>Assumptions</th>
+                <th>SecApps Protection</th>
+                <th>Threats Prevention</th>
+                <th>Assurance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Antivirus, Firewall</td>
+                <td>(Host) OSes are malware-free</td>
+                <td>Run SecApps on (host) OSes</td>
+                <td>No 100% prevention of unknown threats</td>
+                <td>Low (Must trust billions lines <br /> of code in OSes)</td>
+              </tr>
+              <tr>
+                <td>Virtualization, <br />Containerization</td>
+                <td>Same as above</td>
+                <td>Same as above</td>
+                <td>Incomplete threats prevention</td>
+                <td>Same as above</td>
+              </tr>
+              <tr>
+                <td><span class="text-green-bold">Greenbox</span></td>
+                <td>OSes and all other applications are compromised</td>
+                <td>Run SecApps on GreenBox</td>
+                <td>Incomplete threats prevention</td>
+                <td>Same as above</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 

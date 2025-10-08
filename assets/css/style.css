@@ -35,6 +35,10 @@ img{max-width:100%; height:auto; display:block}
 
 .text-red{color:var(--danger)}
 .text-green{color:var(--secure)}
+.text-green-bold{
+  color: var(--secure);
+  font-weight: 700;   /* or: bold */
+}
 
 /* ---------- Header / Nav ---------- */
 .site-header{
