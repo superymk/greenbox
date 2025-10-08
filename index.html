@@ -24,7 +24,7 @@
         <a href="index.html" class="active">Home</a>
         <a href="downloads.html">Download</a>
         <a href="use-cases.html">Use Cases</a>
-        <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://github.com/superymk/greenbox-sdk" rel="noopener" target="_blank">GitHub</a>
         <a href="blog.html">Blog</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -32,23 +32,45 @@
   </header>
 
   <main>
-    <!-- Hero (short paragraph + jigsaw image) -->
-    <section class="section hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>GreenBox</h1>
-          <p>
-            GreenBox is a secure micro-virtualization and remote file platform. It blends a custom
-            hypervisor, lean OS components, and a refined UI to make isolation and file workflows
-            simple and fast—on desktop and embedded.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="downloads.html">Download</a>
-            <a class="btn" href="https://github.com/yourname/greenbox" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
+    <!-- Hero customized to match your sketch -->
+    <section class="section hero hero-sketch">
+      <div class="container">
+        <!-- Headline spans full width, centered -->
+        <div class="hero-headline">
+          <h1>
+            <!-- <span class="text-green">GreenBox</span> – The Assured App Protection.<br /> -->
+            GreenBox – The <span class="text-green">Assured App Protection</span> <br />
+            Against <span class="text-red">All Cyberattacks</span> to OS and Other Apps.
+          </h1>
         </div>
-        <div class="hero-art">
-          <img src="images/hero-jigsaw.svg" alt="Interlocking jigsaw visual for GreenBox components" />
+
+        <!-- Two-column body: left text + buttons, right framed image -->
+        <div class="hero-sketch-grid">
+          <div class="hero-left">
+            <h3 class="hero-lead">
+              GreenBox is the only solution to offer sufficient protection to Security-Sensitive Applications (SecApps). <br/>
+              Why other solutions fail?
+              
+
+
+
+              <!-- GreenBox separates protected applications from Operating Systems (e.g., Windows, Linux, MacOS) and other applications to
+              be immune of their vulnerabilities and malware. <br/>
+              XXXXX<br/>
+              XXXXXX -->
+            </h3>
+
+            <div class="hero-actions">
+              <a class="btn primary pill" href="downloads.html">Download</a>
+              <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on GitHub</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="image-frame">
+              <img src="images/hero-jigsaw.svg" alt="GreenBox jigsaw illustration" />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -69,10 +91,7 @@
     <section class="section" id="news">
       <div class="container">
         <h2>Latest from the Blog</h2>
-
-        <!-- MATCHES BLOG PAGE STYLE -->
         <div id="blog-preview" class="post-list" aria-live="polite"></div>
-
         <div class="cta-row">
           <a class="btn" href="blog.html">Read all posts</a>
         </div>

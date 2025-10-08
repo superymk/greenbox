@@ -10,6 +10,8 @@
   --shadow: 0 10px 30px rgba(0,0,0,.25);
   --radius: 16px;
   --maxw: 1080px;
+  --secure: #3dbb7c;            /* accessible red on dark bg */
+  --danger: #e5484d;            /* accessible red on dark bg */
 }
 
 /* ---- Base ---- */
@@ -26,6 +28,9 @@ img{max-width:100%;height:auto;display:block}
 
 .section{padding:64px 0;border-top:1px solid var(--border)}
 .section.alt{background:var(--bg-alt)}
+
+.text-green { color: var(--secure); }
+.text-red { color: var(--danger); }
 
 /* ---- Header / Nav ---- */
 .site-header{
@@ -133,4 +138,49 @@ img{max-width:100%;height:auto;display:block}
 @media (max-width: 640px){
   .post-item{padding:18px 0 22px 0}
   .post-title{font-size:1.25rem}
+}
+
+/* ===== Hero (sketch-styled) ===== */
+.hero-sketch .hero-headline{
+  text-align:center;
+  margin-bottom:28px;
+}
+.hero-sketch .hero-headline h1{
+  margin:0;
+  font-size:clamp(2.2rem, 2.6vw, 1.9rem);
+  line-height:1.25;
+  font-weight:700;
+}
+
+.hero-sketch-grid{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;   /* left text, right image */
+  gap:40px;
+  align-items:start;
+}
+@media (max-width: 900px){
+  .hero-sketch-grid{ grid-template-columns: 1fr; gap:24px }
+}
+
+.hero-left .hero-lead{
+  margin:0 0 18px 0;
+  line-height:1.35;
+  font-size:clamp(1.05rem, 2vw, 1.2rem);
+  font-weight:600;
+}
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap }
+.btn.pill{ border-radius:24px; padding:.75rem 1.2rem }
+
+.hero-right .image-frame{
+  border:3px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  background:var(--bg);
+  /* keep a nice aspect if the SVG is missing/slow */
+  display:block;
+}
+.hero-right .image-frame img{
+  display:block;
+  width:100%;
+  height:auto;
 }
