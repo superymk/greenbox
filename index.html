@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
   <!-- Top banner / navbar -->
   <header class="site-header">
@@ -32,56 +34,80 @@
   </header>
 
   <main>
-    <!-- Hero customized to match your sketch -->
-    <section class="section hero hero-sketch">
+    <!-- HERO (headline across top; two-column body: LEFT table, RIGHT text+buttons) -->
+    <section class="section hero">
       <div class="container">
-        <!-- Headline spans full width, centered -->
         <div class="hero-headline">
           <h1>
-            <!-- <span class="text-green">GreenBox</span> – The Assured App Protection.<br /> -->
-            GreenBox – The <span class="text-green">Assured App Protection</span> <br />
-            Against <span class="text-red">All Cyberattacks</span> to OS and Other Apps.
+            GreenBox – The <span class="text-green">Assured App Protection</span><br />
+            Against <span class="text-red">All Cyberattacks</span> to OSes and Other Apps.
           </h1>
         </div>
 
-        <!-- Two-column body: left text + buttons, right framed image -->
-        <div class="hero-sketch-grid">
+        <div class="hero-two">
+          <!-- LEFT: comparison table -->
           <div class="hero-left">
-            <h3 class="hero-lead">
-              GreenBox is the only solution to offer sufficient protection to Security-Sensitive Applications (SecApps). <br/>
-              Why other solutions fail?
-              
+            <h3 class="hero-lead">GreenBox is the only endpoint solution to offer sufficient protection to
+              Security-Sensitive Applications (SecApps).</h3>
 
-
-
-              <!-- GreenBox separates protected applications from Operating Systems (e.g., Windows, Linux, MacOS) and other applications to
-              be immune of their vulnerabilities and malware. <br/>
-              XXXXX<br/>
-              XXXXXX -->
-            </h3>
-
-            <div class="hero-actions">
-              <a class="btn primary pill" href="downloads.html">Download</a>
-              <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on GitHub</a>
+            <div class="table-wrap">
+              <!-- Table generated from Book1.xlsx -->
+              <table class="dataframe hero-table">
+                <thead>
+                  <tr>
+                    <th>Approaches</th>
+                    <th>Assumptions</th>
+                    <th>SecApps Protection</th>
+                    <th>Issues</th>
+                    <th>Assurance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Antivirus, Firewall</td>
+                    <td>(Host) OSes are malware-free</td>
+                    <td>Run SecApps on (host) OSes</td>
+                    <td>No 100% prevention of unknown threats</td>
+                    <td>Low (Must trust billions lines <br/> of code in OSes)</td>
+                  </tr>
+                  <tr>
+                    <td>Virtualization, <br/>Containerization</td>
+                    <td>Same as above</td>
+                    <td>Same as above</td>
+                    <td>Incomplete threats prevention</td>
+                    <td>Same as above</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
 
+          <!-- RIGHT: supporting text + buttons -->
           <div class="hero-right">
-            <div class="image-frame">
-              <img src="images/hero-jigsaw.svg" alt="GreenBox jigsaw illustration" />
+            <p class="hero-note">
+              Why do other solutions fail? Because SecApps inherit vulnerabilities from the host OSes and other apps
+              that share the same attack surface. GreenBox isolates SecApps in hardware-backed micro-environments with
+              auditable behavior.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn primary pill" href="downloads.html">Download</a>
+              <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on
+                GitHub</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Aligned sections (use same container as hero) -->
+    <!-- Why / Blog / Contact remain aligned to the same container width -->
     <section class="section alt" id="features">
       <div class="container">
         <h2>Why GreenBox?</h2>
         <ul class="feature-list">
           <li><strong>Micro-virtualization core:</strong> minimal attack surface, hardware isolation.</li>
-          <li><strong>Remote files made friendly:</strong> Google Drive integration, uploads/downloads, progress UI.</li>
+          <li><strong>Remote files made friendly:</strong> Google Drive integration, uploads/downloads, progress UI.
+          </li>
           <li><strong>Polished UI:</strong> clean design language, responsive layout, accessible controls.</li>
           <li><strong>Portable architecture:</strong> Linux & Windows builds, drivers, and SDKs.</li>
         </ul>
@@ -104,7 +130,8 @@
         <p>Questions, collaborations, or security reports? Reach out:</p>
         <ul class="contact-list">
           <li>Email: <a href="mailto:contact@greenbox.dev">contact@greenbox.dev</a></li>
-          <li>GitHub Issues: <a href="https://github.com/yourname/greenbox/issues" target="_blank" rel="noopener">Open an issue</a></li>
+          <li>GitHub Issues: <a href="https://github.com/yourname/greenbox/issues" target="_blank" rel="noopener">Open
+              an issue</a></li>
         </ul>
       </div>
     </section>
@@ -116,4 +143,5 @@
     </div>
   </footer>
 </body>
+
 </html>
