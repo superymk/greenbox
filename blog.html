@@ -7,7 +7,6 @@
   <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
   <link rel="stylesheet" href="assets/css/style.css"/>
   <script defer src="assets/js/main.js"></script>
-  <script defer src="assets/js/utils.js"></script>
 </head>
 <body>
 <header class="site-header">
@@ -17,6 +16,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="downloads.html">Download</a>
+      <a href="use-cases.html">Use Cases</a>
       <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
       <a class="active" href="blog.html">Blog</a>
       <a href="index.html#contact">Contact</a>
@@ -26,9 +26,10 @@
 
 <main>
   <section class="section">
-    <div class="container narrow">
+    <div class="container">
       <h1>Blog</h1>
-      <div id="blog-list" class="cards"></div>
+      <!-- Vertical news-style list -->
+      <div id="news-feed" class="news-list"></div>
     </div>
   </section>
 </main>
@@ -38,29 +39,45 @@
 </footer>
 
 <script>
-  // Load posts.json and render list
-  fetch('data/posts.json', { cache: 'no-store' })
-    .then(r => r.json())
-    .then(posts => {
-      const container = document.getElementById('blog-list');
-      posts
-        .sort((a,b) => new Date(b.date) - new Date(a.date))
-        .forEach(p => {
-          const el = document.createElement('article');
-          el.className = 'card';
-          el.innerHTML = `
-            <h3><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h3>
-            <p class="muted">${new Date(p.date).toLocaleDateString()} · ${p.readingTime || ''}</p>
-            <p>${p.summary || ''}</p>
-            <div><a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}">Read</a></div>
-          `;
-          container.appendChild(el);
-        });
-    })
-    .catch(err => {
-      document.getElementById('blog-list').innerHTML = '<p>Unable to load posts.</p>';
-      console.error(err);
+(async function () {
+  const container = document.getElementById('news-feed');
+  try {
+    const posts = await (await fetch('data/posts.json', {cache:'no-store'})).json();
+    // Sort newest first
+    posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    // Group by year to mimic the “year separators” vibe
+    let currentYear = null;
+    posts.forEach(p => {
+      const d = new Date(p.date);
+      const y = d.getFullYear();
+      if (y !== currentYear) {
+        currentYear = y;
+        const yearEl = document.createElement('div');
+        yearEl.className = 'news-year';
+        yearEl.textContent = String(y);
+        container.appendChild(yearEl);
+      }
+
+      const row = document.createElement('article');
+      row.className = 'news-row';
+      row.innerHTML = `
+        <div class="news-date">${d.toLocaleDateString()}</div>
+        <div class="news-body">
+          <h3 class="news-title"><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h3>
+          ${p.summary ? `<p class="news-summary">${p.summary}</p>` : ''}
+          <div class="news-actions">
+            <a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}">Read</a>
+          </div>
+        </div>
+      `;
+      container.appendChild(row);
     });
+  } catch (e) {
+    container.innerHTML = '<p>Unable to load posts.</p>';
+    console.error(e);
+  }
+})();
 </script>
 </body>
 </html>

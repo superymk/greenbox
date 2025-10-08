@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#12161d"></rect>
+  <rect x="80" y="200" width="160" height="80" rx="10" fill="#2f8f67"></rect>
+  <rect x="400" y="80" width="160" height="80" rx="10" fill="#4cc38a"></rect>
+  <path d="M240,240 C320,220 360,160 400,120" stroke="#232936" stroke-width="8" fill="none"></path>
+  <text x="70" y="190" fill="#e6e9ef" font-size="18" font-family="ui-sans-serif">Hybrid Cloud</text>
+</svg>

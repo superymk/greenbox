@@ -21,17 +21,18 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
 
       <nav class="nav-links" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="downloads.html">Download</a>
+        <a href="use-cases.html">Use Cases</a>
         <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
         <a href="blog.html">Blog</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero (short paragraph + jigsaw image, like realai.eu vibe) -->
+    <!-- Hero (short paragraph + jigsaw image) -->
     <section class="section hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -52,9 +53,9 @@
       </div>
     </section>
 
-    <!-- Features (vertical scroll only) -->
+    <!-- Aligned sections (use same container as hero) -->
     <section class="section alt" id="features">
-      <div class="container narrow">
+      <div class="container">
         <h2>Why GreenBox?</h2>
         <ul class="feature-list">
           <li><strong>Micro-virtualization core:</strong> minimal attack surface, hardware isolation.</li>
@@ -65,20 +66,18 @@
       </div>
     </section>
 
-    <!-- Blog preview (auto-fills from posts.json) -->
     <section class="section" id="news">
-      <div class="container narrow">
+      <div class="container">
         <h2>Latest from the Blog</h2>
-        <div id="blog-preview" class="cards"></div>
+        <div id="blog-preview" class="news-list"></div>
         <div class="cta-row">
           <a class="btn" href="blog.html">Read all posts</a>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
     <section class="section alt" id="contact">
-      <div class="container narrow">
+      <div class="container">
         <h2>Contact</h2>
         <p>Questions, collaborations, or security reports? Reach out:</p>
         <ul class="contact-list">

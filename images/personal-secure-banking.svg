@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#12161d"></rect>
+  <rect x="60" y="60" width="520" height="240" rx="16" fill="#171b22" stroke="#232936"></rect>
+  <polygon points="320,80 520,140 120,140" fill="#4cc38a"></polygon>
+  <rect x="150" y="160" width="340" height="100" rx="8" fill="#2f8f67"></rect>
+  <text x="90" y="120" fill="#e6e9ef" font-size="18" font-family="ui-sans-serif">Secure Banking</text>
+</svg>

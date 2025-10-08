@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#12161d"></rect>
+  <rect x="60" y="60" width="520" height="240" rx="16" fill="#171b22" stroke="#232936"></rect>
+  <rect x="120" y="120" width="160" height="120" rx="10" fill="#2f8f67"></rect>
+  <rect x="360" y="120" width="160" height="120" rx="10" fill="#4cc38a"></rect>
+  <line x1="280" y1="180" x2="360" y2="180" stroke="#232936" stroke-width="8"></line>
+  <text x="90" y="110" fill="#e6e9ef" font-size="18" font-family="ui-sans-serif">Industry Control</text>
+</svg>

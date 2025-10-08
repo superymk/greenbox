@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="640" height="360" fill="#12161d"></rect>
+  <rect x="60" y="60" width="520" height="240" rx="16" fill="#171b22" stroke="#232936"></rect>
+  <rect x="90" y="90" width="130" height="80" rx="10" fill="#4cc38a"></rect>
+  <rect x="260" y="90" width="130" height="80" rx="10" fill="#2f8f67"></rect>
+  <rect x="430" y="90" width="130" height="80" rx="10" fill="#4cc38a"></rect>
+  <path d="M155,170 L155,240 M325,170 L325,240 M495,170 L495,240" stroke="#232936" stroke-width="6"></path>
+  <rect x="120" y="240" width="400" height="30" rx="8" fill="#232936"></rect>
+  <text x="80" y="120" fill="#e6e9ef" font-size="18" font-family="ui-sans-serif">Secure Business Ops</text>
+</svg>
