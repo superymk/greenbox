@@ -3,7 +3,7 @@
   --bg-alt: #12161d;
   --text: #e6e9ef;
   --muted: #a8b0bf;
-  --brand: #4cc38a;
+  --brand: #4cc38a;        /* green accent */
   --brand-strong: #3dbb7c;
   --card: #171b22;
   --border: #232936;
@@ -12,17 +12,22 @@
   --maxw: 1080px;
 }
 
+/* ---- Base ---- */
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol}
+html,body{
+  margin:0;padding:0;background:var(--bg);color:var(--text);
+  font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
 a{color:var(--brand);text-decoration:none}
 a:hover{text-decoration:underline}
 img{max-width:100%;height:auto;display:block}
 
 .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-/* Use a single container width everywhere, to align with hero text area */
+
 .section{padding:64px 0;border-top:1px solid var(--border)}
 .section.alt{background:var(--bg-alt)}
 
+/* ---- Header / Nav ---- */
 .site-header{
   position:sticky;top:0;z-index:50;
   background:rgba(13,15,19,.85);backdrop-filter: blur(8px);
@@ -38,18 +43,25 @@ img{max-width:100%;height:auto;display:block}
 
 @media (max-width: 800px){
   .nav-toggle{display:block}
-  .nav-links{position:absolute;left:0;right:0;top:64px;background:var(--bg);flex-direction:column;padding:12px;border-bottom:1px solid var(--border);display:none}
+  .nav-links{
+    position:absolute;left:0;right:0;top:64px;background:var(--bg);
+    flex-direction:column;padding:12px;border-bottom:1px solid var(--border);display:none
+  }
   .nav-links.open{display:flex}
 }
 
+/* ---- Hero ---- */
 .hero{padding:80px 0}
-.hero-grid{display:grid;grid-template-columns: 1.1fr .9fr;gap:36px;align-items:center}
+.hero-grid{
+  display:grid;grid-template-columns: 1.1fr .9fr;gap:36px;align-items:center
+}
 .hero-copy h1{font-size:clamp(2rem, 4vw, 3rem);line-height:1.2;margin:0 0 12px}
 .hero-copy p{font-size:1.1rem;color:var(--muted);margin:0 0 20px}
 .cta-row{display:flex;gap:.8rem;flex-wrap:wrap}
 .hero-art{filter: drop-shadow(var(--shadow))}
 @media (max-width: 900px){ .hero-grid{grid-template-columns:1fr} }
 
+/* ---- Buttons ---- */
 .btn{
   display:inline-block;padding:.7rem 1rem;border-radius:12px;border:1px solid var(--border);
   color:var(--text);background:transparent;transition:.2s ease;user-select:none
@@ -58,12 +70,10 @@ img{max-width:100%;height:auto;display:block}
 .btn.primary{background:var(--brand);color:#0a0d10;border-color:transparent}
 .btn.primary:hover{background:var(--brand-strong);}
 
-.cards{
-  display:grid;gap:16px;
-  grid-template-columns: repeat(3, 1fr);
-}
-@media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr);} }
-@media (max-width: 640px){ .cards{grid-template-columns: 1fr;} }
+/* ---- Cards (used on Use Cases) ---- */
+.cards{display:grid;gap:16px;grid-template-columns: repeat(3, 1fr)}
+@media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr)} }
+@media (max-width: 640px){ .cards{grid-template-columns: 1fr} }
 
 .card{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
@@ -72,35 +82,55 @@ img{max-width:100%;height:auto;display:block}
 .card h3{margin-top:0}
 .muted{color:var(--muted);margin-top:-6px;margin-bottom:12px}
 
+/* ---- Lists / Content ---- */
 .feature-list{margin:0;padding-left:1.2rem}
 .feature-list li{margin:.4rem 0}
 
-.site-footer{padding:32px 0;border-top:1px solid var(--border);background:var(--bg)}
-
 .prose h1,.prose h2,.prose h3{line-height:1.2}
 .prose p, .prose li{color:var(--text)}
-.code{display:block;background:var(--card);padding:12px;border-radius:12px;border:1px solid var(--border);overflow:auto}
-
-/* --- Vertical news feed (Qubes-like) --- */
-.news-list{display:block}
-.news-year{
-  margin:24px 0 8px 0;
-  font-weight:800; letter-spacing:.02em; color:var(--muted);
-  border-bottom:1px solid var(--border); padding-bottom:6px;
-}
-.news-row{
-  display:grid; grid-template-columns: 160px 1fr; gap:18px;
-  padding:14px 0; border-bottom:1px dashed var(--border);
-}
-.news-date{color:var(--muted);white-space:nowrap}
-.news-title{margin:0 0 6px 0; line-height:1.3}
-.news-summary{margin:0 0 10px 0; color:var(--text)}
-.news-actions{margin-top:4px}
-@media (max-width: 640px){
-  .news-row{grid-template-columns: 1fr}
-  .news-date{order:2}
+.code{
+  display:block;background:var(--card);padding:12px;border-radius:12px;
+  border:1px solid var(--border);overflow:auto
 }
 
-/* Contact list base */
+/* ---- Footer ---- */
+.site-footer{
+  padding:32px 0;border-top:1px solid var(--border);background:var(--bg)
+}
+
+/* ---- Contact ---- */
 .contact-list{margin:0;padding-left:1.2rem}
 .contact-list li{margin:.4rem 0}
+
+/* ---- Blog & Homepage Preview (matching style) ---- */
+/* Container for posts */
+.post-list{display:block}
+
+/* Each post is a clearly separated block with a top border (first has none) */
+.post-item{
+  padding:20px 0 24px 0;
+  border-top:1px solid var(--border);
+}
+.post-item.first{border-top:none; padding-top:0}
+
+/* Title with tight follow-up date */
+.post-title{
+  margin:0 0 4px 0;
+  line-height:1.25;
+  font-size:clamp(1.25rem, 2.2vw, 1.6rem);
+}
+.post-meta{
+  margin:0 0 10px 0;
+  line-height:1.2;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.post-summary{margin:0 0 12px 0; color:var(--text)}
+.post-actions{margin-top:4px}
+
+/* Responsive niceties */
+@media (max-width: 640px){
+  .post-item{padding:18px 0 22px 0}
+  .post-title{font-size:1.25rem}
+}

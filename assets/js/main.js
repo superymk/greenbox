@@ -28,14 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         posts
           .sort((a,b) => new Date(b.date) - new Date(a.date))
           .slice(0,3)
-          .forEach(p => {
+          .forEach((p, idx) => {
+            const d = new Date(p.date);
             const el = document.createElement('article');
-            el.className = 'card';
+            el.className = 'post-item' + (idx === 0 ? ' first' : '');
             el.innerHTML = `
-              <h3><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h3>
-              <p class="muted">${new Date(p.date).toLocaleDateString()} · ${p.readingTime || ''}</p>
-              <p>${p.summary || ''}</p>
-              <div><a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}">Read</a></div>
+              <h2 class="post-title"><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h2>
+              <div class="post-meta">${d.toLocaleDateString()}</div>
+              ${p.summary ? `<p class="post-summary">${p.summary}</p>` : ''}
+              <div class="post-actions">
+                <a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}" aria-label="Read: ${p.title}">Read</a>
+              </div>
             `;
             preview.appendChild(el);
           });
