@@ -212,6 +212,8 @@ img{max-width:100%; height:auto; display:block}
   color:#0a0d10;
 }
 
+/* Prevent content jitter when we lock a min-height */
+.uc-panel { overflow: hidden; }
 
 /* Panel visibility helper */
 .uc-panel.is-hidden{ display:none }
@@ -222,4 +224,28 @@ img{max-width:100%; height:auto; display:block}
   border-radius:10px;
   padding:12px;
   background:var(--bg);
+}
+
+/* Header row for "Who Needs GreenBox?" section: title left, switch right */
+.usecases-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 3rem;          /* nice gap before the panels */
+}
+.usecases-head h2{ margin: 0 }
+
+/* Override the global large bottom margin on the segmented control in this header only */
+.usecases-head .segment{
+  margin: 0;                     /* no extra bottom margin when placed beside the title */
+}
+
+/* Stack on small screens */
+@media (max-width: 640px){
+  .usecases-head{
+    flex-direction: column;
+    align-items: flex-start;     /* title above, switch below on narrow viewports */
+    gap: 12px;
+  }
 }

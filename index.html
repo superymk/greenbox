@@ -25,7 +25,7 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
         <a href="downloads.html">Download</a>
-        <a href="use-cases.html">Use Cases</a>
+        <!-- <a href="use-cases.html">Use Cases</a> -->
         <a href="https://github.com/superymk" rel="noopener" target="_blank">GitHub</a>
         <a href="blog.html">News</a>
         <a href="#contact">Contact</a>
@@ -40,7 +40,7 @@
         <div class="hero-headline">
           <h1>
             GreenBox – The <span class="text-green">Assured App Protection</span><br />
-            Against <span class="text-red">All Cyberattacks</span> to OSes and Other Apps.
+            Against <span class="text-red">All Cyber Attacks</span> to OSes and Other Apps.
           </h1>
         </div>
 
@@ -86,10 +86,56 @@
       </div>
     </section>
 
-    <!-- Why / Blog / Contact remain aligned to the same container width -->
-    <section class="section alt" id="features">
+    <!-- "Who Needs GreenBox" remain aligned to the same container width -->
+    <section class="section alt" id="usecases">
       <div class="container">
-        <h2>Why GreenBox?</h2>
+        <!-- Title at left, switch at right -->
+        <div class="usecases-head">
+          <h2>Who Need GreenBox?</h2>
+
+          <!-- Segmented control -->
+          <div class="segment" role="tablist" aria-label="Use case category">
+            <button class="segment-btn active" role="tab" aria-selected="true" data-target="personal">Personal</button>
+            <button class="segment-btn" role="tab" aria-selected="false" data-target="business">Business</button>
+          </div>
+        </div>
+
+        <!-- Panels: same two-column layout as index hero-two -->
+        <!-- PERSONAL -->
+        <section class="hero-two uc-panel" id="panel-personal" aria-labelledby="tab-personal">
+          <div class="hero-left">
+            <h2 class="hero-lead">Protect Personal Info with Strong Isolation</h2>
+            <ul class="feature-list">
+              <li><strong>Secure Document Processing</strong> - Use "Secure Remote Desktop" on GreenBox.</li> <br />
+              <li><strong>Secure Online Payment</strong> - Use "Secure Remote Desktop" on GreenBox</li> <br />
+              <li><strong>Secure File Backup/Restore:</strong> - Use "Secure Remote Files" on GreenBox.</li> <br />
+            </ul>
+          </div>
+          <!-- right column currently hidden per your markup; add an image anytime -->
+        </section>
+
+        <!-- BUSINESS -->
+        <section class="hero-two uc-panel is-hidden" id="panel-business" aria-labelledby="tab-business">
+          <div class="hero-left">
+            <h2 class="hero-lead"> Secure Business Operations Against Continous Cyber Threats</h2>
+            <ul class="feature-list">
+              <li><strong>Defeat Ransomware </strong> - Employees Use "Secure Remote Files" on GreenBox to protect files
+                hosted on clouds/servers.</li> <br />
+              <li><strong>Defeat APT Attacks </strong> - Employees Use "Secure Remote Desktop" on GreenBox to access
+                sensitive IT assets hosted on central servers.</li> <br />
+              <li><strong>Secure 3rd-Party Access</strong> - 3rd-Party Use "Secure Remote Desktop" on GreenBox to access
+                authorized IT assets.</li> <br />
+            </ul>
+          </div>
+          <!-- right column currently hidden per your markup; add an image anytime -->
+        </section>
+      </div>
+    </section>
+
+    <!-- Why / Blog / Contact remain aligned to the same container width -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2>Why Choose GreenBox?</h2>
         <h3 class="hero-lead">GreenBox is the only endpoint solution to offer <span class="text-green-bold">sufficient
             protection</span> to SecApps.</h3>
 
@@ -135,17 +181,17 @@
       </div>
     </section>
 
-    <section class="section" id="news">
+    <section class="section alt" id="news">
       <div class="container">
-        <h2>Latest from the Blog</h2>
+        <h2>Latest News</h2>
         <div id="blog-preview" class="post-list" aria-live="polite"></div>
         <div class="cta-row">
-          <a class="btn" href="blog.html">Read all posts</a>
+          <a class="btn" href="blog.html">Read all news</a>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <h2>Contact</h2>
         <p>Questions, collaborations, or security reports? Reach out:</p>

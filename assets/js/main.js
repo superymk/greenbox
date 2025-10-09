@@ -62,8 +62,28 @@ document.addEventListener('DOMContentLoaded', () => {
       business: document.getElementById('panel-business'),
     };
 
+    // ---- Equalize panel heights (prevents jump when switching) ----
+    function setEqualPanelHeights() {
+      const els = Object.values(panels).filter(Boolean);
+      if (els.length < 2) return;
+
+      // Remember which panels were hidden
+      const hiddenState = new Map(els.map(el => [el, el.classList.contains('is-hidden')]));
+
+      // Temporarily show all to measure natural heights
+      els.forEach(el => el.classList.remove('is-hidden'));
+      // Clear previous min-heights first
+      els.forEach(el => { el.style.minHeight = ''; });
+
+      const maxH = Math.max(...els.map(el => el.getBoundingClientRect().height));
+      const h = Math.ceil(maxH);
+      els.forEach(el => { el.style.minHeight = `${h}px`; });
+
+      // Restore original visibility
+      hiddenState.forEach((wasHidden, el) => el.classList.toggle('is-hidden', wasHidden));
+    }
+
     function show(kind) {
-      // Guard: if unknown kind, default to personal
       if (!panels[kind]) kind = 'personal';
 
       // Toggle button states
@@ -79,10 +99,13 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.toggle('is-hidden', k !== kind);
       });
 
-      // Optional: reflect state in the hash
+      // Reflect state in the hash
       if (location.hash !== `#${kind}` && history.replaceState) {
         history.replaceState(null, '', `#${kind}`);
       }
+
+      // Equalize heights after every toggle
+      setEqualPanelHeights();
     }
 
     // Click handling
@@ -95,5 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize from URL hash (#business or #personal)
     const hash = (location.hash || '').slice(1);
     show(hash === 'business' ? 'business' : 'personal');
+
+    // Recompute on load (images/fonts) and on resize (debounced)
+    window.addEventListener('load', setEqualPanelHeights);
+    window.addEventListener('resize', (() => {
+      let t;
+      return () => { clearTimeout(t); t = setTimeout(setEqualPanelHeights, 120); };
+    })());
   }
 });
