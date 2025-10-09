@@ -20,6 +20,13 @@
 
 /* ---------- Base ---------- */
 *{box-sizing:border-box}
+html{
+  /* Prevent layout shift when some pages have a vertical scrollbar */
+  scrollbar-gutter: stable both-edges;
+}
+@supports not (scrollbar-gutter: stable){
+  html{ overflow-y: scroll; } /* fallback */
+}
 html,body{
   margin:0; padding:0;
   background:var(--bg); color:var(--text);
@@ -31,7 +38,7 @@ img{max-width:100%; height:auto; display:block}
 
 .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 /* Constrain line length but keep left edge aligned with .container */
-.measure{max-width:800px; margin:0} 
+.measure{max-width:800px; margin:0}
 
 .section{padding:64px 0; border-top:1px solid var(--border)}
 .section.alt{background:var(--bg-alt)}

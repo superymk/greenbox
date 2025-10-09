@@ -1,63 +1,75 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Download — GreenBox</title>
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a class="active" href="downloads.html">Download</a>
-      <a href="use-cases.html">Use Cases</a>
-      <a href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">GitHub</a>
-      <a href="blog.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="section">
-    <div class="container narrow">
-      <h1>Download</h1>
-      <p>Choose your platform. For checksums and signatures, see the release notes on GitHub.</p>
-
-      <div class="cards">
-        <div class="card">
-          <h3>Windows (x64)</h3>
-          <p>Installer and drivers for Windows 10/11 (x64).</p>
-          <!-- <a class="btn primary" href="https://github.com/yourname/greenbox/releases/latest" target="_blank" rel="noopener">Coming Soon...</a> -->
-          <a class="btn primary is-disabled" href="#" aria-disabled="true" onclick="return false;">Coming Soon…</a>
-        </div>
-        <div class="card">
-          <h3>Ubuntu (x64)</h3>
-          <p>Packages for Ubuntu 24.04+ and generic tarballs.</p>
-          <a class="btn primary" href="https://github.com/yourname/greenbox/releases/latest" target="_blank" rel="noopener">Latest Release</a>
-        </div>
-        <div class="card">
-          <h3>Source</h3>
-          <p>Build from source with your toolchain. </p>
-          <a class="btn" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on GitHub</a>
-        </div>
-      </div>
-
-      <h2>Verify Downloads</h2>
-      <p>We publish SHA-256 checksums and (optionally) detached signatures with each release.</p>
-      <pre class="code">sha256sum &lt;filename&gt;</pre>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt="" /> <span>GreenBox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a class="active" href="downloads.html">Download</a>
+        <a href="use-cases.html">Use Cases</a>
+        <a href="https://github.com/superymk" target="_blank" rel="noopener">GitHub</a>
+        <a href="blog.html">News</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container">© <span id="year"></span> GreenBox.</div>
-</footer>
+  <main>
+    <section class="section">
+      <div class="container narrow">
+        <h1>Download</h1>
+        <p>Choose your platform. For checksums and signatures, see the release notes on GitHub.</p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Windows (x64)</h3>
+            <p>Installer and drivers for Windows 10/11 (x64).</p>
+            <!-- <a class="btn primary" href="https://github.com/yourname/greenbox/releases/latest" target="_blank" rel="noopener">Coming Soon...</a> -->
+            <a class="btn primary is-disabled" href="#" aria-disabled="true" onclick="return false;">Coming Soon…</a>
+          </div>
+          <div class="card">
+            <h3>Ubuntu (x64)</h3>
+            <p>Packages for Ubuntu 24.04+ and generic tarballs.</p>
+            <!-- <a class="btn primary" href="https://github.com/yourname/greenbox/releases/latest" target="_blank" rel="noopener">Latest Release</a> -->
+            <a class="btn primary" href="https://github.com/yourname/greenbox/releases/latest" target="_blank"
+              rel="noopener">Proof-of-Concept Release</a>
+          </div>
+          <div class="card">
+            <h3>GreenBox-SDK</h3>
+            <p>Secure your SecApp with GreenBox.</p>
+            <a class="btn" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on
+              GitHub</a>
+          </div>
+        </div>
+
+        <!-- <h2>Verify Downloads</h2>
+      <p>We publish SHA-256 checksums and (optionally) detached signatures with each release.</p>
+      <pre class="code">sha256sum &lt;filename&gt;</pre> -->
+
+        <h2>Notes on Proof-of-Concept Releases</h2>
+        <p>
+          These Proof-of-Concept builds are pre-release and may include limitations and known issues.
+          We’re actively working on improvements. For the latest details and updates, see the downloads page on GitHub.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
+  </footer>
 </body>
+
 </html>
