@@ -30,18 +30,17 @@ a:hover{text-decoration:underline}
 img{max-width:100%; height:auto; display:block}
 
 .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+/* Constrain line length but keep left edge aligned with .container */
+.measure{max-width:800px; margin:0} 
+
 .section{padding:64px 0; border-top:1px solid var(--border)}
 .section.alt{background:var(--bg-alt)}
 
 .text-red{color:var(--danger)}
 .text-green{color:var(--secure)}
-.text-green-bold{
-  color: var(--secure);
-  font-weight: 700;   /* or: bold */
-}
-
-.text-bold{font-weight: 700;}   /* or: bold */
-.text-bold-italic{font-weight: 700; font-style: italic;}   /* or: bold */
+.text-green-bold{color:var(--secure); font-weight:700}
+.text-bold{font-weight:700}
+.text-bold-italic{font-weight:700; font-style:italic}
 
 /* ---------- Header / Nav ---------- */
 .site-header{
@@ -68,12 +67,10 @@ img{max-width:100%; height:auto; display:block}
 
 /* ---------- Hero (new layout) ---------- */
 .hero{padding:80px 0}
-.hero-headline{
-  text-align:center; margin-bottom:28px;
-}
+.hero-headline{ text-align:center; margin-bottom:28px }
 .hero-headline h1{
   margin:0;
-  font-size: clamp(2.4rem, 5vw, 1.9rem);
+  font-size: clamp(2.4rem, 5vw, 3rem);
   line-height:1.2;
   font-weight:800;
   text-wrap: balance;
@@ -109,18 +106,21 @@ img{max-width:100%; height:auto; display:block}
 .btn.primary:hover{background:var(--brand-strong)}
 .btn.pill{border-radius:24px; padding:.75rem 1.2rem}
 
+.btn[disabled], .btn.is-disabled{
+  opacity:.55; cursor:not-allowed; pointer-events:none; transform:none; box-shadow:none;
+}
+
 /* ---------- Table styles (left column) ---------- */
 .table-wrap{overflow-x:auto}
 .hero-table{
-  width:100%; border-collapse: collapse; background:var(--card);
+  width:100%; border-collapse:collapse; background:var(--card);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
 }
 .hero-table thead th{
   text-align:left; font-weight:700; padding:10px 12px; background:var(--bg-alt); border-bottom:1px solid var(--border);
 }
 .hero-table td{
-  padding:10px 12px; border-bottom:1px solid var(--border);
-  vertical-align:top;
+  padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top;
 }
 .hero-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.02)}
 
@@ -128,7 +128,7 @@ img{max-width:100%; height:auto; display:block}
 .feature-list{margin:0; padding-left:1.2rem}
 .feature-list li{margin:.4rem 0}
 
-/* ---------- Blog list (used on Blog page and homepage preview) ---------- */
+/* ---------- Blog list (Blog page + homepage preview) ---------- */
 .post-list{display:block}
 .post-item{padding:20px 0 24px 0; border-top:1px solid var(--border)}
 .post-item.first{border-top:none; padding-top:0}
@@ -141,14 +141,23 @@ img{max-width:100%; height:auto; display:block}
   .post-title{font-size:1.25rem}
 }
 
-/* ---------- Cards (Use Cases pages) ---------- */
+/* ---------- Cards (Use Cases / Downloads) ---------- */
 .cards{display:grid; gap:16px; grid-template-columns: repeat(3, 1fr)}
 @media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr)} }
 @media (max-width: 640px){ .cards{grid-template-columns: 1fr} }
+
 .card{
   background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:18px; box-shadow:var(--shadow)
+  padding:18px; box-shadow:var(--shadow);
+  display:flex; flex-direction:column; min-height:100%;
 }
+
+/* Keep the card’s CTA aligned across the row */
+.cards .card .btn{
+  margin-top:auto; 
+  align-self:flex-start; /* left-aligned; remove if you want full width buttons */
+}
+
 .card h3{margin-top:0}
 .muted{color:var(--muted); margin-top:-6px; margin-bottom:12px}
 

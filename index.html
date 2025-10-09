@@ -45,50 +45,30 @@
         </div>
 
         <div class="hero-two">
-          <!-- LEFT: comparison table
           <div class="hero-left">
-            <p class="hero-note">
-              GreenBox
-              Why do other solutions fail? Because SecApps inherit vulnerabilities from the host OSes and other apps
-              that share the same attack surface. GreenBox isolates SecApps in hardware-backed micro-environments with
-              auditable behavior.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn primary pill" href="downloads.html">Download</a>
-              <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on
-                GitHub</a>
-            </div>
-
-          </div>
-
-           RIGHT: supporting text + buttons
-          <div class="hero-right">
-          </div> -->
-
-
-
-
-
-          <div class="hero-left">
-            <p class="hero-note">
+            <!-- <p class="hero-note">
               GreenBox employs a small and simple micro-hypervisor to <span class="text-bold-italic">separate</span>
               Security-Sensitive Applications (SecApps) on-demand
-              from Operating Systems (OSes)(e.g., Windows, Linux, MacOS) and enforce separation between SecApps. <br />
-
-              <!-- GreenBox separates protected applications from Operating Systems (e.g., Windows, Linux, MacOS) and other applications to
-              be immune of their vulnerabilities and malware. <br/>
-              XXXXX<br/>
-              XXXXXX -->
+              from Operating Systems (OSes)(e.g., Windows, Linux, MacOS) and enforce separation between
+              SecApps. <br />
 
               <br />
               <span class="text-bold">Advantages: </span><br />
-              1. Separation ==> <span class="text-green">SecApps are secure</span> even if <span class="text-red">attackers compromise OSes </span><br />
+              1. Separation ==> <span class="text-green">SecApps are secure</span> even if <span
+                class="text-red">attackers compromise OSes </span><br />
               2. Small and simple ==> Assured protection, formally verifiable <br />
-              3. On-demand ==> Preserve users' experience of OSes and applications, no reboot needed to switch between
+              3. On-demand ==> Preserve users' experience of OSes and applications, no reboot needed to
+              switch between
               SecApps and other applications. <br />
 
-            </p>
+            </p> -->
+
+            <h3 class="hero-note">
+              Separate Security-Sensitive Applications (SecApps) from Operating Systems (OSes)(e.g., Windows, Linux,
+              MacOS) <br /> <br />
+              Design to be small, simple, and formally verifiable <br /> <br />
+              Preserve users' experience <br /> <br />
+            </h3>
 
             <div class="hero-actions">
               <a class="btn primary pill" href="downloads.html">Download</a>
@@ -128,19 +108,23 @@
               <tr>
                 <td>Antivirus, Firewall</td>
                 <td>Keep (host) OSes malware-free to run SecApps</td>
-                <td><span class="text-red">No 100% detection and prevention of unknown threats </span></td>
-                <td><span class="text-red">Insufficient and cannot satisfy </span> (Must trust billions lines <br /> of
+                <td><span class="text-red">No 100% detection and prevention of unknown threats </span>
+                </td>
+                <td><span class="text-red">Insufficient and cannot satisfy </span> (Must trust billions
+                  lines <br /> of
                   code in OSes)</td>
               </tr>
               <tr>
                 <td>Virtualization, <br />Containerization</td>
                 <td>Same as above</td>
-                <td><span class="text-red">Incomplete protection of host OSes' attack surfaces </span></td>
+                <td><span class="text-red">Incomplete protection of host OSes' attack surfaces </span>
+                </td>
                 <td><span class="text-red">Same as above</span></td>
               </tr>
               <tr>
                 <td><span class="text-green-bold">Greenbox</span></td>
-                <td><span class="text-green">Separate SecApps from (inevitably vulnerable) OSes and all other
+                <td><span class="text-green">Separate SecApps from (inevitably vulnerable) OSes and all
+                    other
                     applications</span></td>
                 <td><span class="text-green">-</span></td>
                 <td><span class="text-green">Sufficient (formally verifiable)</span></td>
