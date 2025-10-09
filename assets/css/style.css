@@ -40,6 +40,9 @@ img{max-width:100%; height:auto; display:block}
   font-weight: 700;   /* or: bold */
 }
 
+.text-bold{font-weight: 700;}   /* or: bold */
+.text-bold-italic{font-weight: 700; font-style: italic;}   /* or: bold */
+
 /* ---------- Header / Nav ---------- */
 .site-header{
   position:sticky; top:0; z-index:50;
