@@ -1,55 +1,109 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Use Cases — GreenBox</title>
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="downloads.html">Download</a>
-      <a class="active" href="use-cases.html">Use Cases</a>
-      <a href="https://github.com/superymk" rel="noopener" target="_blank">GitHub</a>
-      <a href="blog.html">News</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="section">
-    <div class="container">
-      <h1>Use Cases</h1>
-      <p>Explore how GreenBox secures everyday tasks for individuals and shields critical operations for organizations.</p>
-
-      <div class="cards">
-        <div class="card">
-          <img src="images/personal-secure-payment.svg" alt="" />
-          <h3>Personal</h3>
-          <p>Secure online payment, secure bank management, and safer browsing with strong isolation.</p>
-          <a class="btn primary" href="use-cases-personal.html">See Personal</a>
-        </div>
-        <div class="card">
-          <img src="images/org-secure-ops.svg" alt="" />
-          <h3>Organizations</h3>
-          <p>Secure business operations—on-prem or hybrid—plus hardened industry control scenarios.</p>
-          <a class="btn primary" href="use-cases-organizations.html">See Organizations</a>
-        </div>
-      </div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt="" /> <span>GreenBox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Download</a>
+        <a class="active" href="use-cases.html">Use Cases</a>
+        <a href="https://github.com/superymk" rel="noopener" target="_blank">GitHub</a>
+        <a href="blog.html">News</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container">© <span id="year"></span> GreenBox. All rights reserved. </div>
-</footer>
+  <main>
+    <!-- Top intro + Personal/Business switch -->
+    <section class="section">
+      <div class="container">
+        <div class="measure">
+          <!-- <h1>Use Cases</h1>
+        <p>Explore how GreenBox protects Security-Sensitive Applications (SecApps) at home and at work.</p> -->
+
+          <!-- Segmented control -->
+          <div class="segment" role="tablist" aria-label="Use case category">
+            <button class="segment-btn active" role="tab" aria-selected="true" data-target="personal">Personal</button>
+            <button class="segment-btn" role="tab" aria-selected="false" data-target="business">Business</button>
+          </div>
+        </div>
+
+        <!-- Panels: same two-column layout as index hero-two -->
+        <!-- PERSONAL -->
+        <section class="hero-two uc-panel" id="panel-personal" aria-labelledby="tab-personal">
+          <div class="hero-left">
+            <h2 class="hero-lead">Protect Personal Info with Strong Isolation</h2>
+            <ul class="feature-list">
+              <li><strong>Secure Document Processing</strong> - Use "Secure Remote Desktop" on GreenBox.</li> <br />
+              <li><strong>Secure Online Payment</strong> - Use "Secure Remote Desktop" on GreenBox</li> <br />
+              <li><strong>Secure File Backup/Restore:</strong> - Use "Secure Remote Files" on GreenBox.</li> <br />
+            </ul>
+
+            <!-- <div class="hero-actions" style="margin-top:10px">
+            <a class="btn primary pill" href="downloads.html">Get GreenBox</a>
+            <a class="btn pill" href="blog.html">Learn More</a>
+          </div> -->
+          </div>
+
+          <!-- <div class="hero-right">
+            <div class="image-frame">
+              <!-- reuse your existing illustration asset
+              <img src="images/personal-secure-payment.svg"
+                alt="Personal use: secure payment and banking isolated by GreenBox" />
+            </div>
+          </div> -->
+        </section>
+
+        <!-- BUSINESS -->
+        <section class="hero-two uc-panel is-hidden" id="panel-business" aria-labelledby="tab-business">
+          <div class="hero-left">
+            <h2 class="hero-lead"> Secure Business Operations Against Continous Cyber Threats</h2>
+            <ul class="feature-list">
+              <li><strong>Defeat Ransomware </strong> - Employees Use "Secure Remote Files" on GreenBox to protect files
+                hosted on
+                clouds/servers.</li> <br />
+              <li><strong>Defeat APT Attacks </strong> - Employees Use "Secure Remote Desktop" on GreenBox to access
+                sensitive IT assets hosted on central servers.
+              </li> <br />
+              <li><strong>Secure 3rd-Party Access</strong> - 3rd-Party Use "Secure Remote Desktop" on GreenBox to access
+                authorized IT assets.
+              </li> <br />
+            </ul>
+
+            <!-- <div class="hero-actions" style="margin-top:10px">
+            <a class="btn primary pill" href="downloads.html">Try PoC Build</a>
+            <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">GreenBox-SDK</a>
+          </div> -->
+          </div>
+
+          <!-- <div class="hero-right">
+            <div class="image-frame">
+              <!-- reuse your existing org illustration asset
+              <img src="images/org-secure-ops.svg"
+                alt="Business use: secure operations and industrial control with GreenBox" />
+            </div>
+          </div> -->
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
+  </footer>
 </body>
+
 </html>

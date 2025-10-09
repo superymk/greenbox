@@ -1,8 +1,10 @@
 // Mobile nav toggle + small helpers
 document.addEventListener('DOMContentLoaded', () => {
+  // Footer year
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
+  // Mobile nav open/close
   const toggle = document.querySelector('.nav-toggle');
   const links  = document.querySelector('.nav-links');
   if (toggle && links) {
@@ -47,5 +49,51 @@ document.addEventListener('DOMContentLoaded', () => {
         preview.innerHTML = '<p>Unable to load posts.</p>';
         console.error(err);
       });
+  }
+
+  // ============================
+  // Use Cases: Personal/Business segmented toggle
+  // ============================
+  const segment = document.querySelector('.segment');
+  if (segment) {
+    const buttons = Array.from(segment.querySelectorAll('.segment-btn'));
+    const panels = {
+      personal: document.getElementById('panel-personal'),
+      business: document.getElementById('panel-business'),
+    };
+
+    function show(kind) {
+      // Guard: if unknown kind, default to personal
+      if (!panels[kind]) kind = 'personal';
+
+      // Toggle button states
+      buttons.forEach(btn => {
+        const active = btn.dataset.target === kind;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+
+      // Toggle panels
+      Object.entries(panels).forEach(([k, el]) => {
+        if (!el) return;
+        el.classList.toggle('is-hidden', k !== kind);
+      });
+
+      // Optional: reflect state in the hash
+      if (location.hash !== `#${kind}` && history.replaceState) {
+        history.replaceState(null, '', `#${kind}`);
+      }
+    }
+
+    // Click handling
+    segment.addEventListener('click', (e) => {
+      const btn = e.target.closest('.segment-btn');
+      if (!btn) return;
+      show(btn.dataset.target);
+    });
+
+    // Initialize from URL hash (#business or #personal)
+    const hash = (location.hash || '').slice(1);
+    show(hash === 'business' ? 'business' : 'personal');
   }
 });

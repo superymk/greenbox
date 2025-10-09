@@ -180,3 +180,46 @@ img{max-width:100%; height:auto; display:block}
   display:block; background:var(--card); padding:12px; border-radius:12px;
   border:1px solid var(--border); overflow:auto
 }
+
+/* Segmented control (Personal / Business) — match .btn.pill size and add spacing */
+.segment{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:2px;                         /* thin rail, like a pill group */
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:var(--bg-alt);
+  margin-top:8px;
+  margin-bottom:4.8em;                 /* ≈ 3 lines at 1.6 line-height */
+}
+.segment-btn{
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  padding:.75rem 1.2rem;               /* EXACTLY like .btn.pill */
+  border-radius:999px;                  /* pill shape */
+  background:transparent;
+  color:var(--text);
+  font-weight:600;
+  line-height:1;                        /* keep height tight, like buttons */
+  font-size:1rem;
+}
+.segment-btn:hover{ text-decoration:underline } /* same hover vibe as links/buttons */
+.segment-btn:focus{ outline:2px solid var(--brand); outline-offset:2px }
+.segment-btn.active{
+  background:var(--brand);
+  color:#0a0d10;
+}
+
+
+/* Panel visibility helper */
+.uc-panel.is-hidden{ display:none }
+
+/* Simple frame to match the home hero art */
+.image-frame{
+  border:3px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  background:var(--bg);
+}
