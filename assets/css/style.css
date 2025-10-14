@@ -307,10 +307,29 @@ img{ max-width:100%; height:auto; display:block }
 
 .card{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:18px;box-shadow:var(--shadow)
+  padding:18px;box-shadow:var(--shadow); 
+  display:flex;
+  flex-direction:column;
+  min-height:100%;
 }
-.card h3{margin-top:0}
+
+/* Tighter vertical spacing in download cards */
+.card h3{
+  margin: 0 0 6px;        /* was default ~0.67em  */
+  line-height: 1.25;
+}
+
+.card p{
+  margin: 4px 0 12px;     /* closer to the heading, still some room above the button */
+}
+
 .muted{color:var(--muted);margin-top:-6px;margin-bottom:12px}
+
+/* Keep the button aligned across the row */
+.cards .card .btn{
+  margin-top:auto;          /* push to bottom of the card */
+  align-self:flex-start;    /* keep it left-aligned; remove for full-width buttons */
+}
 
 /* Page: blog.html */
 /* ---- Lists / Content ---- */
