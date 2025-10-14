@@ -1,4 +1,4 @@
-# Roadmap — Q4 2025
+<!-- # Roadmap — Q4 2025
 
 This quarter we’re focusing on:
 
@@ -7,4 +7,4 @@ This quarter we’re focusing on:
 3. **Security hardening** for the device-code login flow
 4. **Docs**: a concise getting-started and driver guide
 
-_We value your feedback—open an issue to shape the direction._
+_We value your feedback—open an issue to shape the direction._ -->

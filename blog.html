@@ -1,57 +1,69 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Blog — GreenBox</title>
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCJ16E5XG3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LCJ16E5XG3');
+  </script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="downloads.html">Download</a>
-      <a href="use-cases.html">Use Cases</a>
-      <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
-      <a class="active" href="blog.html">Blog</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="section">
-    <div class="container">
-      <h1>Blog</h1>
-
-      <!-- Vertical, clearly-separated posts -->
-      <div id="post-list" class="post-list" aria-live="polite"></div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt="" /> <span>GreenBox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Download</a>
+        <!-- <a href="use-cases.html">Use Cases</a> -->
+        <a href="https://github.com/superymk" rel="noopener" target="_blank">GitHub</a>
+        <a class="active" href="blog.html">News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container">© <span id="year"></span> GreenBox.</div>
-</footer>
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Blog</h1>
 
-<script>
-(async function () {
-  const list = document.getElementById('post-list');
-  try {
-    const posts = await (await fetch('data/posts.json', {cache:'no-store'})).json();
-    posts.sort((a,b) => new Date(b.date) - new Date(a.date));
+        <!-- Vertical, clearly-separated posts -->
+        <div id="post-list" class="post-list" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
 
-    posts.forEach((p, idx) => {
-      const d = new Date(p.date);
-      const item = document.createElement('article');
-      item.className = 'post-item' + (idx === 0 ? ' first' : '');
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
+  </footer>
 
-      item.innerHTML = `
+  <script>
+    (async function () {
+      const list = document.getElementById('post-list');
+      try {
+        const posts = await (await fetch('data/posts.json', { cache: 'no-store' })).json();
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        posts.forEach((p, idx) => {
+          const d = new Date(p.date);
+          const item = document.createElement('article');
+          item.className = 'post-item' + (idx === 0 ? ' first' : '');
+
+          item.innerHTML = `
         <h2 class="post-title"><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h2>
         <div class="post-meta">${d.toLocaleDateString()}</div>
         ${p.summary ? `<p class="post-summary">${p.summary}</p>` : ''}
@@ -59,17 +71,18 @@
           <a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}" aria-label="Read: ${p.title}">Read</a>
         </div>
       `;
-      list.appendChild(item);
-    });
+          list.appendChild(item);
+        });
 
-    if (posts.length === 0) {
-      list.innerHTML = '<p>No posts yet.</p>';
-    }
-  } catch (e) {
-    list.innerHTML = '<p>Unable to load posts.</p>';
-    console.error(e);
-  }
-})();
-</script>
+        if (posts.length === 0) {
+          list.innerHTML = '<p>No posts yet.</p>';
+        }
+      } catch (e) {
+        list.innerHTML = '<p>Unable to load posts.</p>';
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
+
 </html>

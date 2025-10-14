@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -8,7 +9,18 @@
   <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCJ16E5XG3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LCJ16E5XG3');
+  </script>
 </head>
+
 <body>
   <!-- Top banner / navbar -->
   <header class="site-header">
@@ -23,72 +35,207 @@
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
         <a href="downloads.html">Download</a>
-        <a href="use-cases.html">Use Cases</a>
-        <a href="https://github.com/yourname/greenbox" rel="noopener" target="_blank">GitHub</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
+        <!-- <a href="use-cases.html">Use Cases</a> -->
+        <a href="https://github.com/superymk" rel="noopener" target="_blank">GitHub</a>
+        <a href="blog.html">News</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero (short paragraph + jigsaw image) -->
-    <section class="section hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>GreenBox</h1>
-          <p>
-            GreenBox is a secure micro-virtualization and remote file platform. It blends a custom
-            hypervisor, lean OS components, and a refined UI to make isolation and file workflows
-            simple and fast—on desktop and embedded.
-          </p>
-          <div class="cta-row">
-            <a class="btn primary" href="downloads.html">Download</a>
-            <a class="btn" href="https://github.com/yourname/greenbox" target="_blank" rel="noopener">View on GitHub</a>
+    <!-- GreenBox Motivation (full viewport) -->
+    <section class="section hero no-divider fullvh" id="gb-motivation">
+      <div class="container">
+        <div class="motivation-main">
+          <div class="hero-headline">
+            <h2 class="pre-headline">
+              App Protection Must Remain Secure Against 300,000+<sup><a href="#fn-0day" class="footnote-ref">1</a></sup>
+              Potential <span class="text-red">OS Vulnerabilities</span>
+              <br /><br />
+              <span class="badge-lines">
+                <span class="badge-line good">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+                  </svg>
+                  <span class="label">GreenBox</span>
+                </span>
+                <span class="badge-line bad">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z" />
+                  </svg>
+                  <span class="label">Today’s Products</span>
+                </span>
+              </span>
+            </h2>
           </div>
         </div>
-        <div class="hero-art">
-          <img src="images/hero-jigsaw.svg" alt="Interlocking jigsaw visual for GreenBox components" />
+
+        <!-- footnote pinned to bottom of first screen -->
+        <p id="fn-0day" class="footnote">
+          <span class="footnote-index">1</span>
+          On average, about three vulnerabilities are found per 10,000 lines of code
+          (see <a href="https://www.sei.cmu.edu/blog/using-chatgpt-to-analyze-your-code-not-so-fast/">
+            “Using ChatGPT to Analyze Your Code? Not So Fast”</a>). Widely used operating systems—together with
+          third-party device drivers and a broad set of administrative tools—collectively exceed one billion lines of
+          code, and that footprint keeps growing. Exploiting a single vulnerability is often enough to mount a
+          successful attack.
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO (headline + two columns) -->
+    <section class="section hero no-top-border" id="gb-intro">
+      <div class="container">
+        <div class="hero-headline">
+          <h1>
+            GreenBox – The <span class="text-green">Assured App Protection</span><br />
+            Against <span class="text-red">All Cyber Attacks</span> to OSes and Other Apps.
+          </h1>
+        </div>
+
+        <div class="hero-two">
+          <div class="hero-left">
+            <h3 class="hero-note">
+              <span class="text-green">Secure</span> - Separate Security-Sensitive Applications (SecApps) from Operating
+              Systems (OSes) (e.g., Windows, Linux,
+              MacOS) <br /><br />
+              <span class="text-green">Assured</span> - Design to be small, simple, and formally verifiable <br /><br />
+              <span class="text-green">User Friendly</span> - Preserve users' experience <br /><br />
+            </h3>
+
+            <div class="hero-actions">
+              <a class="btn primary pill" href="downloads.html">Download</a>
+              <a class="btn pill" href="https://github.com/superymk/greenbox-sdk" target="_blank" rel="noopener">View on
+                GitHub</a>
+            </div>
+          </div>
+
+          <div class="hero-right">
+            <div class="image-frame">
+              <img src="images/home-intro.svg" alt="GreenBox illustration" />
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-center">
+          <br /> ~10 U.S. and International Patents, ~10 Top Conference Publications <br /> Team From Carnegie Mellon
+          University's CyLab
+        </h2>
+      </div>
+    </section>
+
+    <!-- "Who Needs GreenBox" -->
+    <section class="section alt" id="usecases">
+      <div class="container">
+        <div class="usecases-head">
+          <h2>Who Need GreenBox?</h2>
+
+          <!-- Segmented control -->
+          <div class="segment" role="tablist" aria-label="Use case category">
+            <button class="segment-btn active" role="tab" aria-selected="true" data-target="personal">Personal</button>
+            <button class="segment-btn" role="tab" aria-selected="false" data-target="business">Business</button>
+          </div>
+        </div>
+
+        <!-- PERSONAL -->
+        <section class="hero-two uc-panel" id="panel-personal" aria-labelledby="tab-personal">
+          <div class="hero-left">
+            <h2 class="hero-lead">Protect Personal Info with Strong Isolation</h2>
+            <ul class="feature-list">
+              <li><strong>Secure Document Processing</strong> — Use “Secure Remote Desktop” SecApp on GreenBox.</li>
+              <br />
+              <li><strong>Secure Online Payment</strong> — Use “Secure Remote Desktop” SecApp on GreenBox.</li><br />
+              <li><strong>Secure File Backup/Restore</strong> — Use “Secure Remote Files” SecApp on GreenBox.</li><br />
+            </ul>
+          </div>
+        </section>
+
+        <!-- BUSINESS -->
+        <section class="hero-two uc-panel is-hidden" id="panel-business" aria-labelledby="tab-business">
+          <div class="hero-left">
+            <h2 class="hero-lead">Secure Business Operations Against Continuous Cyber Threats</h2>
+            <ul class="feature-list">
+              <li><strong>Defeat Ransomware</strong> — Employees use “Secure Remote Files” SecApp on GreenBox to
+                protect files hosted on clouds/servers.</li><br />
+              <li><strong>Defeat APT Attacks</strong> — Employees use “Secure Remote Desktop” SecApp on GreenBox to
+                access sensitive IT assets hosted on central servers.</li><br />
+              <li><strong>Secure 3rd-Party Access</strong> — Partners use “Secure Remote Desktop” SecApp on GreenBox to
+                access authorized IT assets.</li><br />
+            </ul>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Why / Comparison table -->
+    <section class="section" id="features">
+      <div class="container">
+        <h2>Why Choose GreenBox?</h2>
+        <h3 class="hero-lead">GreenBox is the only endpoint solution to offer <span class="text-green-bold">sufficient
+            protection</span> to SecApps.</h3>
+
+        <div class="table-wrap">
+          <table class="dataframe hero-table">
+            <thead>
+              <tr>
+                <th>Approaches</th>
+                <th>Goals</th>
+                <th>Security Flaws by Design</th>
+                <th>Assurance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Antivirus, Firewall</td>
+                <td>Keep (host) OSes malware-free to run SecApps</td>
+                <td><span class="text-red">No 100% detection and prevention of unknown threats</span></td>
+                <td><span class="text-red">Insufficient and cannot satisfy</span> (Must trust billions of lines of code
+                  in OSes)</td>
+              </tr>
+              <tr>
+                <td>Virtualization, <br />Containerization</td>
+                <td>Same as above</td>
+                <td><span class="text-red">Incomplete protection of host OSes' attack surfaces</span></td>
+                <td><span class="text-red">Same as above</span></td>
+              </tr>
+              <tr>
+                <td><span class="text-green-bold">GreenBox</span></td>
+                <td><span class="text-green">Separate SecApps from (inevitably vulnerable) OSes and all
+                    applications</span></td>
+                <td><span class="text-green">—</span></td>
+                <td><span class="text-green">Sufficient (formally verifiable)</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
 
-    <!-- Aligned sections (use same container as hero) -->
-    <section class="section alt" id="features">
+    <!-- News preview -->
+    <section class="section alt" id="news">
       <div class="container">
-        <h2>Why GreenBox?</h2>
-        <ul class="feature-list">
-          <li><strong>Micro-virtualization core:</strong> minimal attack surface, hardware isolation.</li>
-          <li><strong>Remote files made friendly:</strong> Google Drive integration, uploads/downloads, progress UI.</li>
-          <li><strong>Polished UI:</strong> clean design language, responsive layout, accessible controls.</li>
-          <li><strong>Portable architecture:</strong> Linux & Windows builds, drivers, and SDKs.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="news">
-      <div class="container">
-        <h2>Latest from the Blog</h2>
-
-        <!-- MATCHES BLOG PAGE STYLE -->
+        <h2>Latest News</h2>
         <div id="blog-preview" class="post-list" aria-live="polite"></div>
-
         <div class="cta-row">
-          <a class="btn" href="blog.html">Read all posts</a>
+          <a class="btn" href="blog.html">Read all news</a>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="contact">
+    <!-- Contact -->
+    <!-- <section class="section" id="contact">
       <div class="container">
         <h2>Contact</h2>
         <p>Questions, collaborations, or security reports? Reach out:</p>
         <ul class="contact-list">
-          <li>Email: <a href="mailto:contact@greenbox.dev">contact@greenbox.dev</a></li>
-          <li>GitHub Issues: <a href="https://github.com/yourname/greenbox/issues" target="_blank" rel="noopener">Open an issue</a></li>
+          <li>Email: <a href="mailto:superymk@cmu.edu">Miao Yu (Superymk)</a></li>
+          <li>GitHub Issues: <a href="https://github.com/superymk/greenbox-sdk/issues" target="_blank"
+              rel="noopener">Open an issue</a></li>
         </ul>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer class="site-footer">
@@ -97,4 +244,5 @@
     </div>
   </footer>
 </body>
+
 </html>
