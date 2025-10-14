@@ -1,73 +1,86 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Article — GreenBox</title>
-  <link rel="icon" href="images/logo.svg" type="image/svg+xml"/>
-  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/style.css" />
   <!-- Marked.js for client-side Markdown rendering -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
   <script defer src="assets/js/main.js"></script>
   <script defer src="assets/js/utils.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCJ16E5XG3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-LCJ16E5XG3');
+  </script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt=""/> <span>GreenBox</span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="downloads.html">Download</a>
-      <!-- <a href="use-cases.html">Use Cases</a> -->
-      <a href="https://github.com/superymk" target="_blank" rel="noopener">GitHub</a>
-      <a href="blog.html">News</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="section">
-    <div class="container narrow">
-      <article id="article">
-        <h1 id="article-title" class="article-title">Loading…</h1>
-        <p id="article-meta" class="muted"></p>
-        <div id="article-content" class="prose"></div>
-      </article>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt="" /> <span>GreenBox</span></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="downloads.html">Download</a>
+        <!-- <a href="use-cases.html">Use Cases</a> -->
+        <a href="https://github.com/superymk" target="_blank" rel="noopener">GitHub</a>
+        <a href="blog.html">News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
-</footer>
+  <main>
+    <section class="section">
+      <div class="container narrow">
+        <article id="article">
+          <h1 id="article-title" class="article-title">Loading…</h1>
+          <p id="article-meta" class="muted"></p>
+          <div id="article-content" class="prose"></div>
+        </article>
+      </div>
+    </section>
+  </main>
 
-<script>
-  (async function () {
-    const params = new URLSearchParams(location.search);
-    const slug = params.get('slug');
-    const titleEl = document.getElementById('article-title');
-    const metaEl  = document.getElementById('article-meta');
-    const content = document.getElementById('article-content');
+  <footer class="site-footer">
+    <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
+  </footer>
 
-    try {
-      const posts = await (await fetch('data/posts.json', { cache: 'no-store' })).json();
-      const post = posts.find(p => p.slug === slug);
-      if (!post) throw new Error('Post not found');
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      const slug = params.get('slug');
+      const titleEl = document.getElementById('article-title');
+      const metaEl = document.getElementById('article-meta');
+      const content = document.getElementById('article-content');
 
-      titleEl.textContent = post.title;
-      metaEl.textContent = new Date(post.date).toLocaleDateString();
+      try {
+        const posts = await (await fetch('data/posts.json', { cache: 'no-store' })).json();
+        const post = posts.find(p => p.slug === slug);
+        if (!post) throw new Error('Post not found');
 
-      const md = await (await fetch(`articles/${encodeURIComponent(slug)}.md`, { cache: 'no-store' })).text();
-      content.innerHTML = marked.parse(md);
-    } catch (e) {
-      titleEl.textContent = 'Not found';
-      metaEl.textContent = '';
-      content.innerHTML = '<p>Sorry, we could not load this article.</p>';
-      console.error(e);
-    }
-  })();
-</script>
+        titleEl.textContent = post.title;
+        metaEl.textContent = new Date(post.date).toLocaleDateString();
+
+        const md = await (await fetch(`articles/${encodeURIComponent(slug)}.md`, { cache: 'no-store' })).text();
+        content.innerHTML = marked.parse(md);
+      } catch (e) {
+        titleEl.textContent = 'Not found';
+        metaEl.textContent = '';
+        content.innerHTML = '<p>Sorry, we could not load this article.</p>';
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
+
 </html>
