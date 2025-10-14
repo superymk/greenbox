@@ -82,11 +82,11 @@ img{ max-width:100%; height:auto; display:block }
 /* Motivation section: full viewport and vertically centered via container */
 .fullvh{ min-height: 100vh; }
 
-/* First screen: center the main line, footnote at bottom */
+/* First screen: center the main line, footnotes sit at bottom */
 #gb-motivation .container{
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 1fr auto; /* Row1: main content centered, Row2: footnote */
+  grid-template-rows: 1fr auto; /* Row1: main content centered, Row2: footnotes block */
 }
 
 /* Center the pre-headline block within row 1 */
@@ -155,7 +155,7 @@ img{ max-width:100%; height:auto; display:block }
     align-items: baseline;
   }
   .hero-headline .badge-line{
-    display: contents; /* so children participate directly in the parent grid */
+    display: contents; /* children participate directly in the parent grid */
   }
   .hero-headline .badge-line .icon{
     grid-column: 1;
@@ -165,33 +165,34 @@ img{ max-width:100%; height:auto; display:block }
   }
 }
 
-/* Footnote stays at bottom (row 2) with some breathing room */
-#gb-motivation .footnote{
-  padding-bottom: 180px;
+/* ---------- Footnotes (grouped together at the bottom of first screen) ---------- */
+/* Wrapper sits in the bottom row of the first screen and keeps both notes together */
+#gb-motivation .footnotes{
+  grid-row: 2;              /* place the whole block in row 2 (auto) */
+  padding-bottom: 180px;     /* breathing room from the very bottom */
+}
+
+/* Individual footnotes: tight spacing between them */
+#gb-motivation .footnotes .footnote{
+  margin: .35rem 0 0;
   font-size:.875rem;
   line-height:1.4;
   color:var(--muted);
   text-align:left;
 }
-
+#gb-motivation .footnotes .footnote:first-child{
+  margin-top: 0;            /* no extra gap above the first footnote */
+}
 .footnote-index{
   display:inline-block; min-width:1.2em; text-align:right; margin-right:.4em; color:var(--muted);
 }
 .footnote-ref{ color:var(--muted); text-decoration:none }
 .footnote-ref:hover{ text-decoration:underline }
 
-/* Keep footnote links the same color as the surrounding text */
-.footnote a {
-  color: inherit;              /* matches .footnote's color (e.g., var(--muted)) */
-  text-decoration: underline;  /* optional: keep it visibly a link */
-}
+/* keep links in footnotes muted */
+.footnotes .footnote a{ color:inherit; text-decoration:underline }
 
-.footnote a:hover,
-.footnote a:focus {
-  text-decoration: underline;  /* avoid switching to green on hover */
-}
-
-/* Two-column hero body */
+/* ---------- Two-column hero body ---------- */
 .hero-two{
   display:grid; grid-template-columns: 1.1fr .9fr; gap:36px; align-items:start;
 }
@@ -285,43 +286,20 @@ img{ max-width:100%; height:auto; display:block }
   border:3px solid var(--border); border-radius:10px; padding:12px; background:var(--bg);
 }
 
-/* ---------- Footer & Contact ---------- */
-.site-footer{ padding:32px 0; border-top:1px solid var(--border); background:var(--bg) }
-.contact-list{ margin:0; padding-left:1.2rem }
-.contact-list li{ margin:.4rem 0 }
-
-/* ---- Footer ---- */
-.site-footer{
-  padding:32px 0;border-top:1px solid var(--border);background:var(--bg)
-}
-
-/* ---- Contact ---- */
-.contact-list{margin:0;padding-left:1.2rem}
-.contact-list li{margin:.4rem 0}
-
-/* Page: download.html */
-/* ---- Cards (used on Use Cases) ---- */
+/* ---------- Cards (download.html etc.) ---------- */
 .cards{display:grid;gap:16px;grid-template-columns: repeat(3, 1fr)}
 @media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr)} }
 @media (max-width: 640px){ .cards{grid-template-columns: 1fr} }
 
 .card{
   background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
-  padding:18px;box-shadow:var(--shadow); 
-  display:flex;
-  flex-direction:column;
-  min-height:100%;
+  padding:18px;box-shadow:var(--shadow);
+  display:flex; flex-direction:column; min-height:100%;
 }
 
 /* Tighter vertical spacing in download cards */
-.card h3{
-  margin: 0 0 6px;        /* was default ~0.67em  */
-  line-height: 1.25;
-}
-
-.card p{
-  margin: 4px 0 12px;     /* closer to the heading, still some room above the button */
-}
+.card h3{ margin: 0 0 6px; line-height: 1.25; }
+.card p{  margin: 4px 0 12px; }
 
 .muted{color:var(--muted);margin-top:-6px;margin-bottom:12px}
 
@@ -331,47 +309,15 @@ img{ max-width:100%; height:auto; display:block }
   align-self:flex-start;    /* keep it left-aligned; remove for full-width buttons */
 }
 
-/* Page: blog.html */
-/* ---- Lists / Content ---- */
-.feature-list{margin:0;padding-left:1.2rem}
-.feature-list li{margin:.4rem 0}
+/* ---------- Footer ---------- */
+.site-footer{ padding:32px 0; border-top:1px solid var(--border); background:var(--bg) }
+.contact-list{ margin:0; padding-left:1.2rem }
+.contact-list li{ margin:.4rem 0 }
 
-.prose h1,.prose h2,.prose h3{line-height:1.2}
-.prose p, .prose li{color:var(--text)}
+/* Optional prose/code blocks */
+.prose h1,.prose h2,.prose h3{ line-height:1.2 }
+.prose p, .prose li{ color:var(--text) }
 .code{
-  display:block;background:var(--card);padding:12px;border-radius:12px;
-  border:1px solid var(--border);overflow:auto
-}
-
-/* ---- Blog & Homepage Preview (matching style) ---- */
-/* Container for posts */
-.post-list{display:block}
-
-/* Each post is a clearly separated block with a top border (first has none) */
-.post-item{
-  padding:20px 0 24px 0;
-  border-top:1px solid var(--border);
-}
-.post-item.first{border-top:none; padding-top:0}
-
-/* Title with tight follow-up date */
-.post-title{
-  margin:0 0 4px 0;
-  line-height:1.25;
-  font-size:clamp(1.25rem, 2.2vw, 1.6rem);
-}
-.post-meta{
-  margin:0 0 10px 0;
-  line-height:1.2;
-  font-size:0.9rem;
-  color:var(--muted);
-}
-
-.post-summary{margin:0 0 12px 0; color:var(--text)}
-.post-actions{margin-top:4px}
-
-/* Responsive niceties */
-@media (max-width: 640px){
-  .post-item{padding:18px 0 22px 0}
-  .post-title{font-size:1.25rem}
+  display:block; background:var(--card); padding:12px; border-radius:12px;
+  border:1px solid var(--border); overflow:auto
 }
