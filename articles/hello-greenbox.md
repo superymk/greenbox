@@ -1,4 +1,4 @@
-# Hello, GreenBox
+<!-- # Hello, GreenBox
 
 Welcome to **GreenBox** — a secure micro-virtualization and remote file platform designed for modern workflows.
 
@@ -14,4 +14,4 @@ Welcome to **GreenBox** — a secure micro-virtualization and remote file platfo
 - 🐞 Report issues
 - 💬 Propose features
 
-Thanks for trying GreenBox!
+Thanks for trying GreenBox! -->

@@ -19,7 +19,8 @@
 }
 
 /* ---------- Base ---------- */
-*{box-sizing:border-box}
+*{ box-sizing:border-box }
+
 html{
   /* Prevent layout shift when some pages have a vertical scrollbar */
   scrollbar-gutter: stable both-edges;
@@ -27,27 +28,29 @@ html{
 @supports not (scrollbar-gutter: stable){
   html{ overflow-y: scroll; } /* fallback */
 }
+
 html,body{
   margin:0; padding:0;
   background:var(--bg); color:var(--text);
   font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
-a{color:var(--brand); text-decoration:none}
-a:hover{text-decoration:underline}
-img{max-width:100%; height:auto; display:block}
 
-.container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
-/* Constrain line length but keep left edge aligned with .container */
-.measure{max-width:800px; margin:0}
+a{ color:var(--brand); text-decoration:none }
+a:hover{ text-decoration:underline }
 
-.section{padding:64px 0; border-top:1px solid var(--border)}
-.section.alt{background:var(--bg-alt)}
+img{ max-width:100%; height:auto; display:block }
 
-.text-red{color:var(--danger)}
-.text-green{color:var(--secure)}
-.text-green-bold{color:var(--secure); font-weight:700}
-.text-bold{font-weight:700}
-.text-bold-italic{font-weight:700; font-style:italic}
+.container{ max-width:var(--maxw); margin:0 auto; padding:0 20px }
+
+.section{ padding:64px 0; border-top:1px solid var(--border) }
+.section.alt{ background:var(--bg-alt) }
+
+/* utilities */
+.text-red{ color:var(--danger) }
+.text-green{ color:var(--secure) }
+.text-green-bold{ color:var(--secure); font-weight:700 }
+.text-bold{ font-weight:700 }
+.text-bold-italic{ font-weight:700; font-style:italic }
 
 /* ---------- Header / Nav ---------- */
 .site-header{
@@ -55,70 +58,157 @@ img{max-width:100%; height:auto; display:block}
   background:rgba(13,15,19,.85); backdrop-filter: blur(8px);
   border-bottom:1px solid var(--border);
 }
-.nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-.brand{display:flex; align-items:center; gap:.6rem; font-weight:700}
-.logo{width:28px; height:28px}
-.nav-links{display:flex; gap:1rem; align-items:center}
-.nav-links a{padding:.35rem .6rem; border-radius:10px}
-.nav-links a.active, .nav-links a:hover{background:var(--bg-alt)}
-.nav-toggle{display:none; background:none; border:0; color:var(--text); font-size:1.5rem}
+.nav{ display:flex; align-items:center; justify-content:space-between; height:64px }
+.brand{ display:flex; align-items:center; gap:.6rem; font-weight:700 }
+.logo{ width:28px; height:28px }
+.nav-links{ display:flex; gap:1rem; align-items:center }
+.nav-links a{ padding:.35rem .6rem; border-radius:10px }
+.nav-links a.active, .nav-links a:hover{ background:var(--bg-alt) }
+.nav-toggle{ display:none; background:none; border:0; color:var(--text); font-size:1.5rem }
 
 @media (max-width: 800px){
-  .nav-toggle{display:block}
+  .nav-toggle{ display:block }
   .nav-links{
     position:absolute; left:0; right:0; top:64px; background:var(--bg);
     flex-direction:column; padding:12px; border-bottom:1px solid var(--border); display:none;
   }
-  .nav-links.open{display:flex}
+  .nav-links.open{ display:flex }
 }
 
-/* ---------- Hero (new layout) ---------- */
-.hero{padding:80px 0}
+/* ---------- Hero / Headlines ---------- */
+.hero{ padding:80px 0 }
+
+/* Motivation section: full viewport and vertically centered via container */
+.fullvh{ min-height: 100vh; }
+
+/* First screen: center the main line, footnote at bottom */
+#gb-motivation .container{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto; /* Row1: main content centered, Row2: footnote */
+}
+
+/* Center the pre-headline block within row 1 */
+#gb-motivation .motivation-main{
+  display: grid;
+  place-items: center;   /* vertical + horizontal center */
+  text-align: center;
+}
+
+/* remove the divider above gb-intro */
+.no-top-border{ border-top:none }
+
+/* Pre-headline + main headline styles */
 .hero-headline{ text-align:center; margin-bottom:28px }
 .hero-headline h1{
   margin:0;
-  font-size: clamp(2.4rem, 5vw, 1.9rem);
+  font-size: clamp(2.4rem, 5vw, 3rem);
   line-height:1.2;
   font-weight:800;
   text-wrap: balance;
 }
 
-.hero-two{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr; /* left table, right text */
-  gap:36px;
-  align-items:start;
-}
-@media (max-width: 900px){
-  .hero-two{grid-template-columns: 1fr; gap:24px}
+/* “h1.5” sizing for pre-headline */
+.hero-headline .pre-headline{
+  margin:0;
+  font-weight:800;
+  line-height:1.15;
+  font-size: clamp(2.1rem, 4.6vw, 2.7rem);
+  text-wrap: balance;
 }
 
+/* --- Icons + short sentences (desktop baseline) --- */
+.hero-headline .icon{
+  width: 0.95em;
+  height: 0.95em;
+  display: inline-block;
+  vertical-align: -0.1em;
+  stroke: currentColor;
+  stroke-width: 0.09em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.hero-headline .badge-lines{
+  display: inline-flex;
+  gap: 2.5rem;         /* space between the two short sentences */
+  flex-wrap: wrap;
+}
+.hero-headline .badge-line{
+  display: inline-flex;
+  align-items: baseline;
+  gap: .5rem;
+  font-weight: 700;
+}
+.hero-headline .good{ color:var(--secure) }
+.hero-headline .bad{  color:var(--danger) }
+
+/* --- Mobile alignment: make both lines share the same icon + text columns --- */
+@media (max-width: 700px){
+  .hero-headline .badge-lines{
+    display: grid;
+    grid-template-columns: auto 1fr; /* icon | label */
+    grid-auto-rows: auto;
+    row-gap: .4rem;
+    column-gap: .5rem;
+    justify-items: start;
+    align-items: baseline;
+  }
+  .hero-headline .badge-line{
+    display: contents; /* so children participate directly in the parent grid */
+  }
+  .hero-headline .badge-line .icon{
+    grid-column: 1;
+  }
+  .hero-headline .badge-line .label{
+    grid-column: 2;    /* both labels start aligned in the same column */
+  }
+}
+
+/* Footnote stays at bottom (row 2) with some breathing room */
+#gb-motivation .footnote{
+  padding-bottom: 180px;
+  font-size:.875rem;
+  line-height:1.4;
+  color:var(--muted);
+  text-align:left;
+}
+
+.footnote-index{
+  display:inline-block; min-width:1.2em; text-align:right; margin-right:.4em; color:var(--muted);
+}
+.footnote-ref{ color:var(--muted); text-decoration:none }
+.footnote-ref:hover{ text-decoration:underline }
+
+/* Two-column hero body */
+.hero-two{
+  display:grid; grid-template-columns: 1.1fr .9fr; gap:36px; align-items:start;
+}
+@media (max-width: 900px){
+  .hero-two{ grid-template-columns:1fr; gap:24px }
+}
 .hero-lead{
   margin:0 0 14px 0;
   line-height:1.35;
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   font-weight:600;
 }
-.hero-note{margin:0 0 18px 0; color:var(--muted)}
+.hero-note{ margin:0 0 18px 0; color:var(--muted) }
 
-/* Buttons used in hero and across site */
-.hero-actions{display:flex; gap:14px; flex-wrap:wrap}
+/* Buttons */
+.hero-actions{ display:flex; gap:14px; flex-wrap:wrap }
 .btn{
   display:inline-block; padding:.7rem 1rem; border-radius:12px;
   border:1px solid var(--border); color:var(--text); background:transparent;
   transition:.2s ease; user-select:none
 }
-.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
-.btn.primary{background:var(--brand); color:#0a0d10; border-color:transparent}
-.btn.primary:hover{background:var(--brand-strong)}
-.btn.pill{border-radius:24px; padding:.75rem 1.2rem}
+.btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
+.btn.primary{ background:var(--brand); color:#0a0d10; border-color:transparent }
+.btn.primary:hover{ background:var(--brand-strong) }
+.btn.pill{ border-radius:24px; padding:.75rem 1.2rem }
+.btn[disabled], .btn.is-disabled{ opacity:.55; cursor:not-allowed; pointer-events:none; transform:none; box-shadow:none }
 
-.btn[disabled], .btn.is-disabled{
-  opacity:.55; cursor:not-allowed; pointer-events:none; transform:none; box-shadow:none;
-}
-
-/* ---------- Table styles (left column) ---------- */
-.table-wrap{overflow-x:auto}
+/* ---------- Table styles ---------- */
+.table-wrap{ overflow-x:auto }
 .hero-table{
   width:100%; border-collapse:collapse; background:var(--card);
   border:1px solid var(--border); border-radius:12px; overflow:hidden;
@@ -129,127 +219,128 @@ img{max-width:100%; height:auto; display:block}
 .hero-table td{
   padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top;
 }
-.hero-table tbody tr:nth-child(odd){background:rgba(255,255,255,0.02)}
+.hero-table tbody tr:nth-child(odd){ background:rgba(255,255,255,0.02) }
 
-/* ---------- Feature list / content ---------- */
-.feature-list{margin:0; padding-left:1.2rem}
-.feature-list li{margin:.4rem 0}
+/* ---------- Lists / Content ---------- */
+.feature-list{ margin:0; padding-left:1.2rem }
+.feature-list li{ margin:.4rem 0 }
 
-/* ---------- Blog list (Blog page + homepage preview) ---------- */
-.post-list{display:block}
-.post-item{padding:20px 0 24px 0; border-top:1px solid var(--border)}
-.post-item.first{border-top:none; padding-top:0}
-.post-title{margin:0 0 4px 0; line-height:1.25; font-size:clamp(1.25rem, 2.2vw, 1.6rem)}
-.post-meta{margin:0 0 10px 0; line-height:1.2; font-size:.9rem; color:var(--muted)}
-.post-summary{margin:0 0 12px 0}
-.post-actions{margin-top:4px}
+/* ---------- Blog preview ---------- */
+.post-list{ display:block }
+.post-item{ padding:20px 0 24px 0; border-top:1px solid var(--border) }
+.post-item.first{ border-top:none; padding-top:0 }
+.post-title{ margin:0 0 4px 0; line-height:1.25; font-size:clamp(1.25rem, 2.2vw, 1.6rem) }
+.post-meta{ margin:0 0 10px 0; line-height:1.2; font-size:.9rem; color:var(--muted) }
+.post-summary{ margin:0 0 12px 0 }
+.post-actions{ margin-top:4px }
 @media (max-width: 640px){
-  .post-item{padding:18px 0 22px 0}
-  .post-title{font-size:1.25rem}
+  .post-item{ padding:18px 0 22px 0 }
+  .post-title{ font-size:1.25rem }
+}
+.cta-row{ display:flex; gap:.8rem; flex-wrap:wrap }
+
+/* ---------- Segmented control (Use cases) ---------- */
+.segment{
+  display:inline-flex; align-items:center; gap:6px; padding:2px;
+  border:1px solid var(--border); border-radius:999px; background:var(--bg-alt);
+  margin:0;
+}
+.segment-btn{
+  appearance:none; border:0; cursor:pointer;
+  padding:.75rem 1.2rem; border-radius:999px;
+  background:transparent; color:var(--text); font-weight:600; line-height:1; font-size:1rem;
+}
+.segment-btn:hover{ text-decoration:underline }
+.segment-btn:focus{ outline:2px solid var(--brand); outline-offset:2px }
+.segment-btn.active{ background:var(--brand); color:#0a0d10 }
+
+/* Use-cases header row */
+.usecases-head{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  margin-bottom:3rem;
+}
+.usecases-head h2{ margin:0 }
+@media (max-width: 640px){
+  .usecases-head{ flex-direction:column; align-items:flex-start; gap:12px }
 }
 
-/* ---------- Cards (Use Cases / Downloads) ---------- */
-.cards{display:grid; gap:16px; grid-template-columns: repeat(3, 1fr)}
+/* Use-cases panel helpers */
+.uc-panel{ overflow:hidden }
+.uc-panel.is-hidden{ display:none }
+
+/* Art frame */
+.image-frame{
+  border:3px solid var(--border); border-radius:10px; padding:12px; background:var(--bg);
+}
+
+/* ---------- Footer & Contact ---------- */
+.site-footer{ padding:32px 0; border-top:1px solid var(--border); background:var(--bg) }
+.contact-list{ margin:0; padding-left:1.2rem }
+.contact-list li{ margin:.4rem 0 }
+
+/* ---- Footer ---- */
+.site-footer{
+  padding:32px 0;border-top:1px solid var(--border);background:var(--bg)
+}
+
+/* ---- Contact ---- */
+.contact-list{margin:0;padding-left:1.2rem}
+.contact-list li{margin:.4rem 0}
+
+/* Page: download.html */
+/* ---- Cards (used on Use Cases) ---- */
+.cards{display:grid;gap:16px;grid-template-columns: repeat(3, 1fr)}
 @media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr)} }
 @media (max-width: 640px){ .cards{grid-template-columns: 1fr} }
 
 .card{
-  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:18px; box-shadow:var(--shadow);
-  display:flex; flex-direction:column; min-height:100%;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:18px;box-shadow:var(--shadow)
 }
-
-/* Keep the card’s CTA aligned across the row */
-.cards .card .btn{
-  margin-top:auto; 
-  align-self:flex-start; /* left-aligned; remove if you want full width buttons */
-}
-
 .card h3{margin-top:0}
-.muted{color:var(--muted); margin-top:-6px; margin-bottom:12px}
+.muted{color:var(--muted);margin-top:-6px;margin-bottom:12px}
 
-/* spacing helpers */
-.mt-32{ margin-top: 2rem; }
-.mt-48{ margin-top: 3rem; }  /* use this one for the Notes block */
+/* Page: blog.html */
+/* ---- Lists / Content ---- */
+.feature-list{margin:0;padding-left:1.2rem}
+.feature-list li{margin:.4rem 0}
 
-/* ---------- Footer & Contact ---------- */
-.site-footer{padding:32px 0; border-top:1px solid var(--border); background:var(--bg)}
-.contact-list{margin:0; padding-left:1.2rem}
-.contact-list li{margin:.4rem 0}
-
-/* ---------- Optional code/prose blocks (article pages) ---------- */
 .prose h1,.prose h2,.prose h3{line-height:1.2}
 .prose p, .prose li{color:var(--text)}
 .code{
-  display:block; background:var(--card); padding:12px; border-radius:12px;
-  border:1px solid var(--border); overflow:auto
+  display:block;background:var(--card);padding:12px;border-radius:12px;
+  border:1px solid var(--border);overflow:auto
 }
 
-/* Segmented control (Personal / Business) — match .btn.pill size and add spacing */
-.segment{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:2px;                         /* thin rail, like a pill group */
-  border:1px solid var(--border);
-  border-radius:999px;
-  background:var(--bg-alt);
-  margin-top:8px;
-  margin-bottom:4.8em;                 /* ≈ 3 lines at 1.6 line-height */
+/* ---- Blog & Homepage Preview (matching style) ---- */
+/* Container for posts */
+.post-list{display:block}
+
+/* Each post is a clearly separated block with a top border (first has none) */
+.post-item{
+  padding:20px 0 24px 0;
+  border-top:1px solid var(--border);
 }
-.segment-btn{
-  appearance:none;
-  border:0;
-  cursor:pointer;
-  padding:.75rem 1.2rem;               /* EXACTLY like .btn.pill */
-  border-radius:999px;                  /* pill shape */
-  background:transparent;
-  color:var(--text);
-  font-weight:600;
-  line-height:1;                        /* keep height tight, like buttons */
-  font-size:1rem;
+.post-item.first{border-top:none; padding-top:0}
+
+/* Title with tight follow-up date */
+.post-title{
+  margin:0 0 4px 0;
+  line-height:1.25;
+  font-size:clamp(1.25rem, 2.2vw, 1.6rem);
 }
-.segment-btn:hover{ text-decoration:underline } /* same hover vibe as links/buttons */
-.segment-btn:focus{ outline:2px solid var(--brand); outline-offset:2px }
-.segment-btn.active{
-  background:var(--brand);
-  color:#0a0d10;
+.post-meta{
+  margin:0 0 10px 0;
+  line-height:1.2;
+  font-size:0.9rem;
+  color:var(--muted);
 }
 
-/* Prevent content jitter when we lock a min-height */
-.uc-panel { overflow: hidden; }
+.post-summary{margin:0 0 12px 0; color:var(--text)}
+.post-actions{margin-top:4px}
 
-/* Panel visibility helper */
-.uc-panel.is-hidden{ display:none }
-
-/* Simple frame to match the home hero art */
-.image-frame{
-  border:3px solid var(--border);
-  border-radius:10px;
-  padding:12px;
-  background:var(--bg);
-}
-
-/* Header row for "Who Needs GreenBox?" section: title left, switch right */
-.usecases-head{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 3rem;          /* nice gap before the panels */
-}
-.usecases-head h2{ margin: 0 }
-
-/* Override the global large bottom margin on the segmented control in this header only */
-.usecases-head .segment{
-  margin: 0;                     /* no extra bottom margin when placed beside the title */
-}
-
-/* Stack on small screens */
+/* Responsive niceties */
 @media (max-width: 640px){
-  .usecases-head{
-    flex-direction: column;
-    align-items: flex-start;     /* title above, switch below on narrow viewports */
-    gap: 12px;
-  }
+  .post-item{padding:18px 0 22px 0}
+  .post-title{font-size:1.25rem}
 }

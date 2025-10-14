@@ -34,8 +34,46 @@
   </header>
 
   <main>
-    <!-- HERO (headline across top; two-column body: LEFT table, RIGHT text+buttons) -->
-    <section class="section hero">
+    <!-- GreenBox Motivation (full viewport) -->
+    <section class="section hero no-divider fullvh" id="gb-motivation">
+      <div class="container">
+        <div class="motivation-main">
+          <div class="hero-headline">
+            <h2 class="pre-headline">
+              App Protection Must Remain Secure Against 300,000++<sup><a href="#fn-0day"
+                  class="footnote-ref">1</a></sup>
+              Potential OS Vulnerabilities
+              <br />
+              <span class="badge-lines">
+                <span class="badge-line good">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z" />
+                  </svg>
+                  <span class="label">GreenBox</span>
+                </span>
+                <span class="badge-line bad">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="currentColor"
+                      d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z" />
+                  </svg>
+                  <span class="label">Today’s Solution</span>
+                </span>
+              </span>
+            </h2>
+          </div>
+        </div>
+
+        <!-- footnote pinned to bottom of first screen -->
+        <p id="fn-0day" class="footnote">
+          <span class="footnote-index">1</span>
+          Replace with your citation/definition for “300,000++ 0-days” (e.g., cumulative discovered/exploitable
+          vulnerabilities).
+        </p>
+      </div>
+    </section>
+
+    <!-- HERO (headline + two columns) -->
+    <section class="section hero no-top-border" id="gb-intro">
       <div class="container">
         <div class="hero-headline">
           <h1>
@@ -46,28 +84,11 @@
 
         <div class="hero-two">
           <div class="hero-left">
-            <!-- <p class="hero-note">
-              GreenBox employs a small and simple micro-hypervisor to <span class="text-bold-italic">separate</span>
-              Security-Sensitive Applications (SecApps) on-demand
-              from Operating Systems (OSes)(e.g., Windows, Linux, MacOS) and enforce separation between
-              SecApps. <br />
-
-              <br />
-              <span class="text-bold">Advantages: </span><br />
-              1. Separation ==> <span class="text-green">SecApps are secure</span> even if <span
-                class="text-red">attackers compromise OSes </span><br />
-              2. Small and simple ==> Assured protection, formally verifiable <br />
-              3. On-demand ==> Preserve users' experience of OSes and applications, no reboot needed to
-              switch between
-              SecApps and other applications. <br />
-
-            </p> -->
-
             <h3 class="hero-note">
-              Separate Security-Sensitive Applications (SecApps) from Operating Systems (OSes)(e.g., Windows, Linux,
-              MacOS) <br /> <br />
-              Design to be small, simple, and formally verifiable <br /> <br />
-              Preserve users' experience <br /> <br />
+              Separate Security-Sensitive Applications (SecApps) from Operating Systems (OSes) (e.g., Windows, Linux,
+              MacOS) <br /><br />
+              Design to be small, simple, and formally verifiable <br /><br />
+              Preserve users' experience <br /><br />
             </h3>
 
             <div class="hero-actions">
@@ -86,10 +107,9 @@
       </div>
     </section>
 
-    <!-- "Who Needs GreenBox" remain aligned to the same container width -->
+    <!-- "Who Needs GreenBox" -->
     <section class="section alt" id="usecases">
       <div class="container">
-        <!-- Title at left, switch at right -->
         <div class="usecases-head">
           <h2>Who Need GreenBox?</h2>
 
@@ -100,39 +120,37 @@
           </div>
         </div>
 
-        <!-- Panels: same two-column layout as index hero-two -->
         <!-- PERSONAL -->
         <section class="hero-two uc-panel" id="panel-personal" aria-labelledby="tab-personal">
           <div class="hero-left">
             <h2 class="hero-lead">Protect Personal Info with Strong Isolation</h2>
             <ul class="feature-list">
-              <li><strong>Secure Document Processing</strong> - Use "Secure Remote Desktop" SecApp on GreenBox.</li> <br />
-              <li><strong>Secure Online Payment</strong> - Use "Secure Remote Desktop" SecApp on GreenBox</li> <br />
-              <li><strong>Secure File Backup/Restore:</strong> - Use "Secure Remote Files" SecApp on GreenBox.</li> <br />
+              <li><strong>Secure Document Processing</strong> — Use “Secure Remote Desktop” SecApp on GreenBox.</li>
+              <br />
+              <li><strong>Secure Online Payment</strong> — Use “Secure Remote Desktop” SecApp on GreenBox.</li><br />
+              <li><strong>Secure File Backup/Restore</strong> — Use “Secure Remote Files” SecApp on GreenBox.</li><br />
             </ul>
           </div>
-          <!-- right column currently hidden per your markup; add an image anytime -->
         </section>
 
         <!-- BUSINESS -->
         <section class="hero-two uc-panel is-hidden" id="panel-business" aria-labelledby="tab-business">
           <div class="hero-left">
-            <h2 class="hero-lead"> Secure Business Operations Against Continous Cyber Threats</h2>
+            <h2 class="hero-lead">Secure Business Operations Against Continuous Cyber Threats</h2>
             <ul class="feature-list">
-              <li><strong>Defeat Ransomware </strong> - Employees Use "Secure Remote Files" SecApp on GreenBox to
-                protect files hosted on clouds/servers.</li> <br />
-              <li><strong>Defeat APT Attacks </strong> - Employees Use "Secure Remote Desktop" SecApp on GreenBox to
-                access sensitive IT assets hosted on central servers.</li> <br />
-              <li><strong>Secure 3rd-Party Access</strong> - 3rd-Party Use "Secure Remote Desktop" SecApp on GreenBox to
-                access authorized IT assets.</li> <br />
+              <li><strong>Defeat Ransomware</strong> — Employees use “Secure Remote Files” SecApp on GreenBox to
+                protect files hosted on clouds/servers.</li><br />
+              <li><strong>Defeat APT Attacks</strong> — Employees use “Secure Remote Desktop” SecApp on GreenBox to
+                access sensitive IT assets hosted on central servers.</li><br />
+              <li><strong>Secure 3rd-Party Access</strong> — Partners use “Secure Remote Desktop” SecApp on GreenBox to
+                access authorized IT assets.</li><br />
             </ul>
           </div>
-          <!-- right column currently hidden per your markup; add an image anytime -->
         </section>
       </div>
     </section>
 
-    <!-- Why / Blog / Contact remain aligned to the same container width -->
+    <!-- Why / Comparison table -->
     <section class="section" id="features">
       <div class="container">
         <h2>Why Choose GreenBox?</h2>
@@ -140,7 +158,6 @@
             protection</span> to SecApps.</h3>
 
         <div class="table-wrap">
-          <!-- Table generated from Book1.xlsx -->
           <table class="dataframe hero-table">
             <thead>
               <tr>
@@ -154,25 +171,21 @@
               <tr>
                 <td>Antivirus, Firewall</td>
                 <td>Keep (host) OSes malware-free to run SecApps</td>
-                <td><span class="text-red">No 100% detection and prevention of unknown threats </span>
-                </td>
-                <td><span class="text-red">Insufficient and cannot satisfy </span> (Must trust billions
-                  lines <br /> of
-                  code in OSes)</td>
+                <td><span class="text-red">No 100% detection and prevention of unknown threats</span></td>
+                <td><span class="text-red">Insufficient and cannot satisfy</span> (Must trust billions of lines of code
+                  in OSes)</td>
               </tr>
               <tr>
                 <td>Virtualization, <br />Containerization</td>
                 <td>Same as above</td>
-                <td><span class="text-red">Incomplete protection of host OSes' attack surfaces </span>
-                </td>
+                <td><span class="text-red">Incomplete protection of host OSes' attack surfaces</span></td>
                 <td><span class="text-red">Same as above</span></td>
               </tr>
               <tr>
-                <td><span class="text-green-bold">Greenbox</span></td>
+                <td><span class="text-green-bold">GreenBox</span></td>
                 <td><span class="text-green">Separate SecApps from (inevitably vulnerable) OSes and all
-                    other
                     applications</span></td>
-                <td><span class="text-green">-</span></td>
+                <td><span class="text-green">—</span></td>
                 <td><span class="text-green">Sufficient (formally verifiable)</span></td>
               </tr>
             </tbody>
@@ -181,6 +194,7 @@
       </div>
     </section>
 
+    <!-- News preview -->
     <section class="section alt" id="news">
       <div class="container">
         <h2>Latest News</h2>
@@ -191,6 +205,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section class="section" id="contact">
       <div class="container">
         <h2>Contact</h2>
