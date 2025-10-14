@@ -51,6 +51,7 @@ img{ max-width:100%; height:auto; display:block }
 .text-green-bold{ color:var(--secure); font-weight:700 }
 .text-bold{ font-weight:700 }
 .text-bold-italic{ font-weight:700; font-style:italic }
+.text-center { text-align: center; }
 
 /* ---------- Header / Nav ---------- */
 .site-header{
@@ -178,6 +179,17 @@ img{ max-width:100%; height:auto; display:block }
 }
 .footnote-ref{ color:var(--muted); text-decoration:none }
 .footnote-ref:hover{ text-decoration:underline }
+
+/* Keep footnote links the same color as the surrounding text */
+.footnote a {
+  color: inherit;              /* matches .footnote's color (e.g., var(--muted)) */
+  text-decoration: underline;  /* optional: keep it visibly a link */
+}
+
+.footnote a:hover,
+.footnote a:focus {
+  text-decoration: underline;  /* avoid switching to green on hover */
+}
 
 /* Two-column hero body */
 .hero-two{
