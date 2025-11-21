@@ -63,6 +63,34 @@
       const metaEl = document.getElementById('article-meta');
       const content = document.getElementById('article-content');
 
+      function fixRelativeUrls(rootEl) {
+        const isAbsolute = (url) =>
+          !url ||
+          url.startsWith('http://') ||
+          url.startsWith('https://') ||
+          url.startsWith('mailto:') ||
+          url.startsWith('/') ||
+          url.startsWith('#');
+
+        const prefix = 'articles/'; // base dir where your .md lives
+
+        // img / video / audio / source
+        rootEl.querySelectorAll('img, video, audio, source').forEach(el => {
+          const src = el.getAttribute('src');
+          if (!isAbsolute(src)) {
+            el.setAttribute('src', prefix + src);
+          }
+        });
+
+        // links inside article (optional, if you use relative links in md)
+        rootEl.querySelectorAll('a').forEach(el => {
+          const href = el.getAttribute('href');
+          if (!isAbsolute(href)) {
+            el.setAttribute('href', prefix + href);
+          }
+        });
+      }
+
       try {
         const posts = await (await fetch('data/posts.json', { cache: 'no-store' })).json();
         const post = posts.find(p => p.slug === slug);
@@ -73,6 +101,9 @@
 
         const md = await (await fetch(`articles/${encodeURIComponent(slug)}.md`, { cache: 'no-store' })).text();
         content.innerHTML = marked.parse(md);
+
+        // 👇 Fix image/video paths after rendering
+        fixRelativeUrls(content);
       } catch (e) {
         titleEl.textContent = 'Not found';
         metaEl.textContent = '';
@@ -81,6 +112,7 @@
       }
     })();
   </script>
+
 </body>
 
 </html>
