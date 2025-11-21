@@ -97,7 +97,21 @@
         if (!post) throw new Error('Post not found');
 
         titleEl.textContent = post.title;
-        metaEl.textContent = new Date(post.date).toLocaleDateString();
+
+        // Safely handle missing author and fix the date issue (see section 2)
+        const author = post.author || 'GreenBox Team';
+
+        // Treat the date string as LOCAL date, not UTC
+        const dateObj = new Date(post.date + 'T00:00:00');
+        // Optional: nicer formatting
+        const formattedDate = dateObj.toLocaleDateString(undefined, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        });
+
+        // "Miao Yu · Nov 20, 2025"
+        metaEl.textContent = `${author} · ${formattedDate}`;
 
         const md = await (await fetch(`articles/${encodeURIComponent(slug)}.md`, { cache: 'no-store' })).text();
         content.innerHTML = marked.parse(md);
