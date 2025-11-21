@@ -50,4 +50,6 @@ It only takes one misconfigured rule or one user running with overly broad permi
 
 ## Use GreenBox to Defeat Ransomware Against Remote Files: Protect the Remote Files Client, Not the OS
 
-<img src="new-sap-rfiles-img1.jpg" alt="isolated" width="600"/>
+<p align="center">
+   <img src="new-sap-rfiles-img1.jpg" alt="isolated" width="600"/>
+</p>
