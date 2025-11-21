@@ -73,11 +73,10 @@ The same architecture can be used to protect other security-sensitive applicatio
 <iframe
   width="560"
   height="315"
-  src="https://youtu.be/QoDwy9X3FOA"
+  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
   title="YouTube video player"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  referrerpolicy="strict-origin-when-cross-origin"
   allowfullscreen>
 </iframe>
 

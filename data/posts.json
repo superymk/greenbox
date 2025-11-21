@@ -1,13 +1,5 @@
 [
   {
-    "slug": "hello-greenbox",
-    "title": "Hello, GreenBox",
-    "date": "2025-10-01",
-    "author": "Miao Yu", 
-    "summary": "A quick introduction to the GreenBox vision, components, and roadmap.",
-    "readingTime": "3 min"
-  },
-  {
     "slug": "new-sap-rfiles",
     "title": "(New SecApp) Defeat Ransomware Against Remote Files",
     "date": "2025-11-20",
