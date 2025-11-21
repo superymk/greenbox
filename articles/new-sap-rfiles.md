@@ -70,7 +70,9 @@ The same architecture can be used to protect other security-sensitive applicatio
 
 ## Demo
 
+<p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QoDwy9X3FOA?si=aZKM5aEdDnYXkYye" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</p>
 
 
 [1] Fortinet. “Ransomware: Types, Examples & Removal Tactics”. https://www.fortinet.com/resources/cyberglossary/ransomware
