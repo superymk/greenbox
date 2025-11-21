@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile nav open/close
   const toggle = document.querySelector('.nav-toggle');
-  const links  = document.querySelector('.nav-links');
+  const links = document.querySelector('.nav-links');
   if (toggle && links) {
     toggle.addEventListener('click', () => {
       const open = links.classList.toggle('open');
@@ -24,19 +24,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // Blog preview on homepage (if the container exists)
   const preview = document.getElementById('blog-preview');
   if (preview) {
+    const parseLocalDate = (dateStr) => new Date(dateStr + 'T00:00:00');
+
     fetch('data/posts.json', { cache: 'no-store' })
       .then(r => r.json())
       .then(posts => {
         posts
-          .sort((a,b) => new Date(b.date) - new Date(a.date))
-          .slice(0,3)
+          .sort((a, b) => parseLocalDate(b.date) - parseLocalDate(a.date))
+          .slice(0, 3)
           .forEach((p, idx) => {
-            const d = new Date(p.date);
+            const d = parseLocalDate(p.date);
             const el = document.createElement('article');
             el.className = 'post-item' + (idx === 0 ? ' first' : '');
             el.innerHTML = `
-              <h2 class="post-title"><a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a></h2>
-              <div class="post-meta">${d.toLocaleDateString()}</div>
+              <h2 class="post-title">
+                <a href="article.html?slug=${encodeURIComponent(p.slug)}">${p.title}</a>
+              </h2>
+              <div class="post-meta">${d.toLocaleDateString(undefined, {
+              year: 'numeric',
+              month: 'short',
+              day: 'numeric'
+            })}</div>
               ${p.summary ? `<p class="post-summary">${p.summary}</p>` : ''}
               <div class="post-actions">
                 <a class="btn" href="article.html?slug=${encodeURIComponent(p.slug)}" aria-label="Read: ${p.title}">Read</a>
@@ -50,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error(err);
       });
   }
+
 
   // ============================
   // Use Cases: Personal/Business segmented toggle
