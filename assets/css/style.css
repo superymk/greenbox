@@ -286,6 +286,21 @@ img{ max-width:100%; height:auto; display:block }
   border:3px solid var(--border); border-radius:10px; padding:12px; background:var(--bg);
 }
 
+/* ---------- Blogs ---------- */
+/* Center the video block and cap it at 1000px width */
+.video-embed {
+  max-width: 1000px;
+  margin: 2rem auto;      /* centers horizontally inside the article */
+}
+
+/* Make iframe responsive with 1000x600 (= 5:3) ratio */
+.video-embed iframe {
+  display: block;
+  width: 100%;            /* take full width of container, up to 1000px */
+  aspect-ratio: 5 / 3;    /* 1000 x 600 */
+  border: 0;
+}
+
 /* ---------- Cards (download.html etc.) ---------- */
 .cards{display:grid;gap:16px;grid-template-columns: repeat(3, 1fr)}
 @media (max-width: 1000px){ .cards{grid-template-columns: repeat(2, 1fr)} }
@@ -321,3 +336,4 @@ img{ max-width:100%; height:auto; display:block }
   display:block; background:var(--card); padding:12px; border-radius:12px;
   border:1px solid var(--border); overflow:auto
 }
+
