@@ -1,5 +1,11 @@
 Ransomware have evolved from simple “encrypt everything on disk” malware into highly targeted campaigns that go after what actually matters: organizations' intellectual properties stored on remote file servers and cloud drives. Attackers are no longer satisfied with locking employees' computers; they want to corrupt production document repositories, codebases, design vaults, and backups on servers, then charge organizations for restoring the files and delete the stolen copies.
 
+<p align="center">
+   <img src="new-sap-rfiles-img1.jpg" alt="Ransomware Campaigns" width="600"/>
+</p>
+
+*Ransomware Campaigns*[^fortinet]
+
 Most of today’s defenses mitigate the risk but cannot protect employees' accesses of remote files. These defenses focus on detecting malware (not just ransomware) or sandboxing downloaded applications, but they cannot detect 0-day attacks or protect every remote attack interface. Even worse, malware are witnessed to evolve in hours with LLM to bypass defenses. These defenses also still fundamentally trust the huge and complex general-purpose operating systems that service all applications. Once those OSes are compromised—and experience shows that they frequently are—the entire remote-file path is exposed.
 
 GreenBox takes a different approach: instead of trying to make a massive, vulnerable OS “good enough,” it protects the remote files client itself from the OS and all other apps. The result is a remote-file workflow that remains trustworthy even when the OS and all other apps are compromised by ransomware.
@@ -51,5 +57,9 @@ It only takes one misconfigured rule or one user running with overly broad permi
 ## Use GreenBox to Defeat Ransomware Against Remote Files: Protect the Remote Files Client, Not the OS
 
 <p align="center">
-   <img src="new-sap-rfiles-img1.jpg" alt="isolated" width="600"/>
+   <img src="new-sap-rfiles-img2.jpg" alt="GreenBox Protection" width="600"/>
 </p>
+
+
+
+[^fortinet]: Image Source: Fortinet. “Ransomware: Types, Examples & Removal Tactics”. https://www.fortinet.com/resources/cyberglossary/ransomware
