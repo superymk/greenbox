@@ -1,10 +1,18 @@
 [
   {
+    "slug": "gb-changelogs",
+    "title": "GreenBox PoC Release 20260211",
+    "date": "2026-02-10",
+    "author": "Miao Yu", 
+    "summary": "GreenBox Changelogs",
+    "readingTime": "3 mins"
+  },
+  {
     "slug": "new-sap-rfiles",
     "title": "(New SecApp) Defeat Ransomware Against Remote Files",
     "date": "2025-11-20",
     "author": "Miao Yu", 
     "summary": "GreenBox protects users' accesses of remote files, not another mitigation.",
-    "readingTime": "10 min"
-  }
+    "readingTime": "10 mins"
+  },
 ]
