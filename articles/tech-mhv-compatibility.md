@@ -1,5 +1,3 @@
-# [Tech] How to Make Micro-Hypervisors Compatible with Commodity OSes
-
 Micro-hypervisors (mHVs) isolate security-sensitive applications (SecApps) from commodity OSes (e.g., Win10, Win11, Linux), which are large and complex and hence are inevitably vulnerable. mHVs create a red partition to run a commodity OS and one or more green partitions to run SecApps. The red partition owns most of the computer resources (e.g., memory, I/O devices) to run general-purpose OSes and applications, whereas the green partitions own only the necessary resources to run SecApps.
 
 <p align="center">
