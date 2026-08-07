@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+    ],
+    "settings": {
+        "files.associations": {
+            "chrono": "c",
+            "complex": "c",
+            "optional": "c",
+            "system_error": "c",
+            "type_traits": "c",
+            "xlocmon": "c",
+            "xtr1common": "c",
+            "xutility": "c",
+            "os_tpm_info.h": "c",
+            "string.h": "c",
+            "palddk.h": "c",
+            "print_bcd.h": "c",
+            "*.s": "c",
+            "sos.h": "c",
+            "compilers.h": "c",
+            "iterator": "cpp",
+            "memory": "cpp",
+            "*.inc": "cpp",
+            "secbase_fn_flags.h": "c",
+            "vector": "c"
+        }
+    }
+}

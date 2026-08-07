@@ -1,5 +1,13 @@
 [
   {
+    "slug": "tech-mhv-compatibility",
+    "title": "[Tech] How to Make Micro-Hypervisors Compatible with Commodity OSes",
+    "date": "2026-08-07",
+    "author": "Miao Yu", 
+    "summary": "[Tech] Fix compatibility issues of any micro-hypervisors",
+    "readingTime": "10 mins"
+  },
+  {
     "slug": "gb-changelogs",
     "title": "GreenBox PoC Release 20260211",
     "date": "2026-02-11",
