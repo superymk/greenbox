@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -18,6 +19,76 @@
 
     gtag('config', 'G-LCJ16E5XG3');
   </script>
+  <style>
+    /* Styles local to the changelog section. */
+    .changelog-panel {
+      margin-top: 1rem;
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .changelog-panel > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      font-weight: 600;
+      list-style: none;
+    }
+
+    .changelog-panel > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .changelog-panel > summary::after {
+      content: "+";
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .changelog-panel[open] > summary::after {
+      content: "−";
+    }
+
+    .changelog-panel[open] > summary {
+      border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    }
+
+    .changelog-panel > summary:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: -4px;
+      border-radius: 8px;
+    }
+
+    .changelog-body {
+      padding: 1rem 1.25rem;
+    }
+
+    .changelog-body h3 {
+      margin: 1.5rem 0 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .changelog-body h3:first-child {
+      margin-top: 0;
+    }
+
+    .changelog-body ul {
+      margin: 0.5rem 0 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .changelog-body li + li {
+      margin-top: 0.45rem;
+    }
+
+    .changelog-body p {
+      margin: 0.5rem 0 1rem;
+    }
+  </style>
 </head>
 
 <body>
@@ -77,6 +148,20 @@
           These Proof-of-Concept builds are pre-release and may include limitations and known issues.
           We’re actively working on improvements. For the latest details and updates, see the downloads page on GitHub.
         </p>
+
+        <!-- Collapsed by default; the Markdown file is loaded only when expanded. -->
+        <h2 class="mt-48">Changelog</h2>
+        <details id="changelog" class="changelog-panel">
+          <summary>Show release history</summary>
+          <div class="changelog-body">
+            <p id="changelog-status" role="status" hidden></p>
+            <div id="changelog-content"></div>
+            <noscript>
+              <p>JavaScript is required to display the changelog here.
+                <a href="CHANGELOG.md">Read the Markdown file</a> instead.</p>
+            </noscript>
+          </div>
+        </details>
       </div>
     </section>
   </main>
@@ -84,6 +169,95 @@
   <footer class="site-footer">
     <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
   </footer>
+  <script>
+    (() => {
+      const details = document.getElementById("changelog");
+      const content = document.getElementById("changelog-content");
+      const status = document.getElementById("changelog-status");
+      let loaded = false;
+      let loading = false;
+
+      // Safely render the Markdown constructs used in CHANGELOG.md:
+      // headings, unordered lists, and paragraphs. Text is never treated as HTML.
+      function renderChangelog(markdown) {
+        const fragment = document.createDocumentFragment();
+        let list = null;
+        let paragraph = null;
+
+        for (const rawLine of markdown.replace(/\r\n?/g, "\n").split("\n")) {
+          const line = rawLine.trim();
+
+          if (!line) {
+            list = null;
+            paragraph = null;
+            continue;
+          }
+
+          const heading = /^(#{1,6})\s+(.+)$/.exec(line);
+          if (heading) {
+            list = null;
+            paragraph = null;
+            // Markdown '## Release' becomes an h3, beneath this page's h2.
+            const level = Math.min(heading[1].length + 1, 6);
+            const element = document.createElement(`h${level}`);
+            element.textContent = heading[2];
+            fragment.appendChild(element);
+            continue;
+          }
+
+          const bullet = /^[-*+]\s+(.+)$/.exec(line);
+          if (bullet) {
+            paragraph = null;
+            if (!list) {
+              list = document.createElement("ul");
+              fragment.appendChild(list);
+            }
+            const item = document.createElement("li");
+            item.textContent = bullet[1];
+            list.appendChild(item);
+            continue;
+          }
+
+          list = null;
+          if (!paragraph) {
+            paragraph = document.createElement("p");
+            fragment.appendChild(paragraph);
+          } else {
+            paragraph.appendChild(document.createTextNode(" "));
+          }
+          paragraph.appendChild(document.createTextNode(line));
+        }
+
+        content.replaceChildren(fragment);
+      }
+
+      details.addEventListener("toggle", async () => {
+        if (!details.open || loaded || loading) return;
+
+        loading = true;
+        status.hidden = false;
+        status.textContent = "Loading changelog…";
+
+        try {
+          const response = await fetch("CHANGELOG.md", { cache: "no-cache" });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+          renderChangelog(await response.text());
+          loaded = true;
+          status.hidden = true;
+        } catch (error) {
+          console.error("Failed to load CHANGELOG.md:", error);
+          status.textContent = "Unable to load the changelog. ";
+          const link = document.createElement("a");
+          link.href = "CHANGELOG.md";
+          link.textContent = "Open the Markdown file";
+          status.appendChild(link);
+        } finally {
+          loading = false;
+        }
+      });
+    })();
+  </script>
 </body>
 
 </html>
