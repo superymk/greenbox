@@ -1,5 +1,3 @@
-# Recent Incident – Okta Breach (Oct. 2023)
-
 *Published: December 7, 2023*
 
 *Original article: [Superymk's Thoughts on Cybersecurity](https://superymk.wordpress.com/2023/12/07/recent-incident-okta-breach-oct-2023/)*
