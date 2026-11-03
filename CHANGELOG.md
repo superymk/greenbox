@@ -1,3 +1,10 @@
+## GreenBox-PoC-202611
+* [Fix][SecBase] Improve hardware compatibility, support Intel Ultra 9 285K CPU
+* [New][GreenBox] Support general USB keyboards and mice
+* [New-Experimental][SecBase] Support nested virtualization
+* [New-Experimental][SecBase] Improve hardware compatibility: Support AMD CPU
+* [New-Experimental][GreenBox] Support USB devices under hubs
+
 ## GreenBox-PoC-20260211
 * [Fix][SecAgent] Fixed "SecAgent (OS kernel module for GreenBox) cannot be load or unload on-demand"
 * [Improve][SecAgent] Improve code quality
