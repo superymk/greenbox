@@ -16,6 +16,22 @@
     "readingTime": "10 mins"
   },
   {
+    "slug": "where-are-we-at-with-endpoint-security-part-3-beyond-malware-detection-2023-continued",
+    "title": "Where Are We at with Endpoint Security (Part 3: Beyond Malware Detection)? (2023 continued)",
+    "date": "2024-01-18",
+    "author": "Miao Yu", 
+    "summary": "No security products today can protect users’ endpoints (e.g., PCs, laptops, mobile phones, tablets) against all malware (e.g., unknown malware). The issue will persist in the next two decades unless the industry rebuilds these systems entirely.",
+    "readingTime": "10 mins"
+  },
+  {
+    "slug": "where-are-we-at-with-endpoint-security-part-2-2023",
+    "title": "Where Are We at with Endpoint Security (Part 2)? (2023)",
+    "date": "2023-11-29",
+    "author": "Miao Yu", 
+    "summary": "No security products today can protect users’ endpoints (e.g., PCs, laptops, mobile phones, tablets) against all malware (e.g., unknown malware). The issue will persist in the next two decades unless the industry rebuilds these systems entirely.",
+    "readingTime": "10 mins"
+  },
+  {
     "slug": "where-are-we-at-with-endpoint-security-part-1-2023",
     "title": "Where Are We at with Endpoint Security (Part 1)? (2023)",
     "date": "2023-11-29",

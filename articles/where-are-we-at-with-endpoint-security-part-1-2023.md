@@ -1,9 +1,7 @@
-# Where Are We at with Endpoint Security (Part 1)? (2023)
-
 *Published: November 29, 2023*  
 *Original post: [Superymk’s Thoughts on Cybersecurity](https://superymk.wordpress.com/2023/11/29/where-are-we-at-with-endpoint-security-part-1-2023/)*
 
-**TL; DR.** No security products today can protect users’ endpoints (e.g., PCs, laptops, mobile phones, tablets) against all malware (e.g., unknown malware). The issue will persist in the next two decades unless the industry rebuilds these systems entirely.
+**TL; DR.** _<u>No</u>_ security products today can protect users’ endpoints (e.g., PCs, laptops, mobile phones, tablets) against _<u>all</u>_ malware (e.g., unknown malware). The issue will persist in the next two decades unless the industry rebuilds these systems entirely.
 
 **What is endpoint security?** Essentially, endpoint security is about peace of mind in using computers. It’s the assurance that you can handle sensitive tasks—like banking, accessing medical records, or responding to work emails—without extra learning curves. It’s about intuitive use while safeguarding critical data and applications on your devices, ensuring secure communication across networks, and preserving user experience.
 
@@ -13,7 +11,10 @@ An individual endpoint device compromised outside office networks could spread t
 
 **Endpoint security today is insecure.** Today’s tools, predominantly Antivirus and Firewall programs, fall short. They often miss new or even some known malware threats. Even with advancements in AI and machine learning aimed at reducing errors, the goal remains elusive: zero false positive and negative rates to ensure both effectiveness and user convenience.
 
-![Endpoint Security landscape, CyberScape 2023](where-are-we-at-with-endpoint-security-part-1-2023-img1.png)
+<p align="center">
+   <img src="where-are-we-at-with-endpoint-security-part-1-2023-img1.png" alt="Image1" width="600"/>
+   <p align="center"> Endpoint Security landscape, CyberScape 2023 </p>
+</p>
 
 *CyberScape 2023 ([source](https://momentumcyber.com/docs/Monthly/Cybersecurity_Snapshot_May_2023.pdf))*
 
@@ -25,6 +26,9 @@ The same EDR system may alarm incorrectly without considering the scenarios.
 
 (Meanwhile EDR systems are advertising)
 
-![Evading EDR: The Definitive Guide to Defeating Endpoint Detection Systems, Matt Hand](where-are-we-at-with-endpoint-security-part-1-2023-img2.png)
+<p align="center">
+   <img src="where-are-we-at-with-endpoint-security-part-1-2023-img2.png" alt="Image2" width="200"/>
+   <p align="center"> Evading EDR: The Definitive Guide to Defeating Endpoint Detection Systems, Matt Hand </p>
+</p>
 
 **Zero-Trust Network Architecture (ZTNA) cannot replace endpoint security, period.** ZTNA enforces access control at the network realm boundary based on endpoint context; e.g., user, device, and geographic location. Without endpoint security, ZTNA cannot gather reliable context from users’ endpoints. ZTNA will also fail to differentiate hackers from users. Users and hackers would have the same privilege to access all information via users’ endpoints.
