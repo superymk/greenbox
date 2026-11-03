@@ -1,10 +1,18 @@
 [
   {
+    "slug": "endpoint-security-is-not-replacable",
+    "title": "Endpoint Security is Not Replacable",
+    "date": "2026-11-03",
+    "author": "Miao Yu", 
+    "summary": "Endpoint security is required and cannot be replaced by other security solutions today.",
+    "readingTime": "10 mins"
+  },
+  {
     "slug": "tech-mhv-compatibility",
     "title": "[Tech] How to Make Micro-Hypervisors Compatible with Commodity OSes",
     "date": "2026-08-07",
     "author": "Miao Yu", 
-    "summary": "[Tech] Fix compatibility issues of any micro-hypervisors",
+    "summary": "[Tech] Fix compatibility issues of any micro-hypervisors.",
     "readingTime": "10 mins"
   },
   {
@@ -21,6 +29,22 @@
     "date": "2024-01-18",
     "author": "Miao Yu", 
     "summary": "No security products today can protect users’ endpoints (e.g., PCs, laptops, mobile phones, tablets) against all malware (e.g., unknown malware). The issue will persist in the next two decades unless the industry rebuilds these systems entirely.",
+    "readingTime": "10 mins"
+  },
+  {
+    "slug": "recent-incident-lockbit3-0-nov-2023",
+    "title": "Recent Incident – LockBit 3.0 (Nov. 2023)",
+    "date": "2023-12-17",
+    "author": "Miao Yu", 
+    "summary": "LockBit 3.0 quick analysis.",
+    "readingTime": "10 mins"
+  },
+  {
+    "slug": "recent-incident-okta-breach-oct-2023",
+    "title": "Recent Incident – Okta Breach (Oct. 2023)",
+    "date": "2023-12-07",
+    "author": "Miao Yu", 
+    "summary": "Okta Breach quick analysis.",
     "readingTime": "10 mins"
   },
   {
