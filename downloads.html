@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Download — GreenBox</title>
+  <title>Download 鈥?GreenBox</title>
   <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <script defer src="assets/js/main.js"></script>
@@ -50,7 +49,7 @@
     }
 
     .changelog-panel[open] > summary::after {
-      content: "−";
+      content: "鈭?;
     }
 
     .changelog-panel[open] > summary {
@@ -81,6 +80,11 @@
       padding-left: 1.5rem;
     }
 
+    .changelog-body li > ul {
+      margin: 0.35rem 0 0.5rem;
+      list-style-type: circle;
+    }
+
     .changelog-body li + li {
       margin-top: 0.45rem;
     }
@@ -95,7 +99,7 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="index.html"><img src="images/logo.svg" class="logo" alt="" /> <span>GreenBox</span></a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">鈽?/button>
       <nav class="nav-links" aria-label="Primary">
         <a href="index.html">Home</a>
         <a class="active" href="downloads.html">Download</a>
@@ -118,7 +122,7 @@
           <div class="card">
             <h3>Windows (x64)</h3>
             <p>Installer and drivers for Windows 10/11 (x64).</p>
-            <!-- <a class="btn primary is-disabled" href="#" aria-disabled="true" onclick="return false;">Coming Soon…</a> -->
+            <!-- <a class="btn primary is-disabled" href="#" aria-disabled="true" onclick="return false;">Coming Soon鈥?/a> -->
              <a class="btn primary"
               href="https://github.com/superymk/greenbox-bin/releases/download/GreenBox-PoC-20260211/GreenBox-PoC-202602.zip"
               target="_blank" rel="noopener">Proof-of-Concept Release</a>
@@ -146,7 +150,7 @@
         <h2 class="mt-48">Notes on Proof-of-Concept Releases</h2>
         <p>
           These Proof-of-Concept builds are pre-release and may include limitations and known issues.
-          We’re actively working on improvements. For the latest details and updates, see the downloads page on GitHub.
+          We鈥檙e actively working on improvements. For the latest details and updates, see the downloads page on GitHub.
         </p>
 
         <!-- Collapsed by default; the Markdown file is loaded only when expanded. -->
@@ -167,7 +171,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">© <span id="year"></span> GreenBox. All rights reserved.</div>
+    <div class="container">漏 <span id="year"></span> GreenBox. All rights reserved.</div>
   </footer>
   <script>
     (() => {
@@ -181,21 +185,21 @@
       // headings, unordered lists, and paragraphs. Text is never treated as HTML.
       function renderChangelog(markdown) {
         const fragment = document.createDocumentFragment();
-        let list = null;
+        const listStack = []; // Each entry: { indent, list, lastItem }.
         let paragraph = null;
 
         for (const rawLine of markdown.replace(/\r\n?/g, "\n").split("\n")) {
           const line = rawLine.trim();
 
           if (!line) {
-            list = null;
+            listStack.length = 0;
             paragraph = null;
             continue;
           }
 
           const heading = /^(#{1,6})\s+(.+)$/.exec(line);
           if (heading) {
-            list = null;
+            listStack.length = 0;
             paragraph = null;
             // Markdown '## Release' becomes an h3, beneath this page's h2.
             const level = Math.min(heading[1].length + 1, 6);
@@ -205,20 +209,37 @@
             continue;
           }
 
-          const bullet = /^[-*+]\s+(.+)$/.exec(line);
+          // Preserve leading spaces/tabs to recognize nested Markdown bullets.
+          const bullet = /^([ \t]*)[-*+]\s+(.+)$/.exec(rawLine);
           if (bullet) {
             paragraph = null;
-            if (!list) {
-              list = document.createElement("ul");
-              fragment.appendChild(list);
+            const indent = bullet[1].replace(/\t/g, "    ").length;
+
+            // Back out to the matching parent when indentation decreases.
+            while (listStack.length && indent < listStack[listStack.length - 1].indent) {
+              listStack.pop();
             }
+
+            if (!listStack.length) {
+              const list = document.createElement("ul");
+              fragment.appendChild(list);
+              listStack.push({ indent, list, lastItem: null });
+            } else if (indent > listStack[listStack.length - 1].indent) {
+              const parent = listStack[listStack.length - 1].lastItem;
+              const list = document.createElement("ul");
+              parent.appendChild(list);
+              listStack.push({ indent, list, lastItem: null });
+            }
+
             const item = document.createElement("li");
-            item.textContent = bullet[1];
-            list.appendChild(item);
+            item.textContent = bullet[2];
+            const current = listStack[listStack.length - 1];
+            current.list.appendChild(item);
+            current.lastItem = item;
             continue;
           }
 
-          list = null;
+          listStack.length = 0;
           if (!paragraph) {
             paragraph = document.createElement("p");
             fragment.appendChild(paragraph);
@@ -236,7 +257,7 @@
 
         loading = true;
         status.hidden = false;
-        status.textContent = "Loading changelog…";
+        status.textContent = "Loading changelog鈥?;
 
         try {
           const response = await fetch("CHANGELOG.md", { cache: "no-cache" });
