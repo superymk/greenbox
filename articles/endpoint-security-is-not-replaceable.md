@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="endpoint-security-is-not-replacable-img1.png" alt="Image1" width="600"/>
+   <img src="endpoint-security-is-not-replaceable-img1.png" alt="Image1" width="600"/>
    <p align="center"> CyberScape 2023 </p>
 </p>
 
